@@ -1,0 +1,150 @@
+/* 
+    Document   : style
+    Created on : 14.10.2012, 20:26:15
+    Author     : loki2d
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+} 
+html {
+    height: 100%;
+    width: 100%;
+}
+
+.i_wropper {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.i_wBlock{    
+    width: 100000px;
+}
+.b_home {
+    float:left;
+    background: url("img/H1.JPG") center no-repeat;
+}
+
+
+.b_uploadScreen {
+    float:left;
+    background: url("img/H2.jpg") center no-repeat;
+}
+
+
+
+
+/*menu
+-----------------------------*/
+.i_menu {
+    height: 30px;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    width: 400px;
+    height: 20px;
+    z-index: 10;
+}
+.b_menu {
+    list-style: none;
+    margin: 0px;
+    padding:0px; 
+    text-align: center;
+}
+.e_menu {
+   display: inline-block;    
+   padding:  0px 5px;
+   line-height: 30px;
+   cursor: pointer;
+   margin: 0px 2px;
+   border: 1px solid bisque;
+}
+.e_menu-active {
+    border: 1px dotted red;
+}
+
+/*Action blocks
+*/
+.b_wArea {
+  float:left;
+  position: relative;
+}
+
+.b_home {
+    background: url("img/H1.JPG") center no-repeat;
+}
+        .b_char-Kenny {
+                position: absolute;
+                top: 67%;
+                left: 61%;
+                height: 17%;
+                width: 8%;
+              
+                background: url(img/kenny.png) 0px 0px no-repeat;
+                background-size: contain;
+        }
+        .b_char-Cartman{
+            position: absolute;   
+            top: 70%;
+            left: 28%;
+            height: 17%;
+            width: 10%;
+           
+            background: url(img/cartman.png) 0px 0px no-repeat;
+            background-size: contain;
+        }
+        .e_Cartman-mount {
+            position:  relative;
+            height: 10%;
+            width: 6%;
+            top: 52%;
+            left: 38%;
+            background: url(img/wtf2.png) 0px 0px no-repeat;
+            display: none ;        
+            
+        }
+        
+        .b_char-Kail{
+            position: absolute;
+            top: 67%;
+            left: 50%;
+            height: 21%;
+            width: 8%;
+            
+            background: url(img/kail.png) 0px 0px no-repeat;
+            background-size: contain;
+
+        }
+        .b_char-Stan{
+            position: absolute;
+            top: 67%;
+            left: 41%;
+            height: 21%;
+            width: 8%;             
+            background: url(img/Stan.png) 0px 0px no-repeat;
+            background-size: contain;
+        }
+        
+.b_Stan {
+    background: url("img/H1.JPG") center no-repeat;
+}
+.b_Kenny {
+    background: url("img/H1.JPG") center no-repeat;
+}
+.b_Cartman {
+    background: url("img/H1.JPG") center no-repeat;
+}
+.b_Kail {
+    background: url("img/H1.JPG") center no-repeat;
+}
+
+
+
+/*.b_tags {
+    
+} */
