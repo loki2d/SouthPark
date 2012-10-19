@@ -98,15 +98,27 @@ html {
             background: url(img/cartman.png) 0px 0px no-repeat;
             background-size: contain;
         }
-        .e_Cartman-mount {
+        #Cartman-mount {
             position:  relative;
-            height: 10%;
-            width: 6%;
+            height: 10px;
+            width: 10px;
             top: 52%;
             left: 38%;
-            background: url(img/wtf2.png) 0px 0px no-repeat;
-            display: none ;        
-            
+            background-color: #edbd8d; 
+            display:none;
+            /*border: 1px solid green;*/
+        }
+        .b_speak-bable-cartman {
+            display: none;
+            padding-top: 30px;
+            height: 80px;
+            width: 200%;
+            position: absolute;
+            top: -160%;
+            left: 30%;
+            text-align: center;
+            border-radius: 100px;
+                background: aliceblue;
         }
         
         .b_char-Kail{

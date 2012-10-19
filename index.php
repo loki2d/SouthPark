@@ -12,7 +12,7 @@
 <html>
     <head>
         <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content=charset=UTF-8" /> 
         <link rel="stylesheet" media="screen" type="text/css" href="style.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js" type="text/javascript"></script>
         <script src="script.js" type="text/javascript"></script>
@@ -44,19 +44,28 @@
        <div class="i_wropper">
            <div class="i_wBlock" >
                <div class="b_wArea b_home" name="home"> 
-                   <div class="b_char-Cartman">
-                       <div class="e_Cartman-mount">                           
-                       </div> 
+                   <div class="b_char-Cartman">                       
+                       
+                       <canvas id="Cartman-mount">                           
+                       </canvas> 
+                       
                        <audio class="Cartman_hi">
-                           <source id="Cartman_hi" src="audio/test.mp3">                 
+                           <source id="Cartman_hi" src="audio/test.ogg"  type="audio/ogg">                 
                            </source>
                            Браузер гавно
                        </audio>
+                       <div class="b_speak-bable-cartman">
+                           hi, guys! This is the song, i just write! <br>
+                           Is cole "i hate you, guy." !
+                           
+                          
+                           </div>
                    </div>
                    <div class="b_char-Stan"></div>
                    <div class="b_char-Kail"></div>
                    <div class="b_char-Kenny"></div>
-                   
+                   <div><img src="img/wtf2.png" />
+                       </div>
                    
                </div>
                <div class="b_wArea b_uploadScreen">

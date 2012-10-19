@@ -6,7 +6,7 @@ Resize();                               // ресайзим див в котор
 
     $(".i_menu li").click(function(){
         var linkName = $(this).attr("goto");
-        $(".i_wBlock").animate({"margin-left": "-"+width+"px"}, 1000, function(){             
+        $(".i_wBlock").animate({"margin-left": "-"+width+"px"}, 1000, function(){   
             Download_block(linkName);
         }); 
         
@@ -16,7 +16,7 @@ Resize();                               // ресайзим див в котор
         Resize();
     });
     $(".b_char-Cartman").click(function(e){
-        speak( $(this) );
+        speaking( $(this) );
     })
 });
 
@@ -38,11 +38,11 @@ function Resize(){
 }
 
 
-function Download_block(pageName){ // делаем запрос на данные к базе с помощю файла .php
+function Download_block(pageName){ 
      var page =  $(".b_"+pageName);
      var positionEl = page.offset();
-     $(".i_wBlock").animate({"margin-left": "-"+(positionEl.left + $(window).width())+"px"}, 1000, function(){
-        
+     $(".i_wBlock").animate({"margin-left": "-"+positionEl.left+"px"}, 1000, function(){
+       
      });
      
         
@@ -57,14 +57,60 @@ function Download_block(pageName){ // делаем запрос на данны�
 //      });    
   }
   
-  function speak(speaker){
-      $(".e_Cartman-mount").css({"display": "block"});
-        var snd = $(".Cartman_hi")[0];
+  function speaking(speaker){
+      
+      $(".b_speak-bable-cartman").css({"display": "block"});
+        var snd = document.getElementsByTagName("audio")[0];        
         snd.play();
-      $(".e_Cartman-mount").animate({
-          "background-position": "-680px" 
-      }, 4500, "linear", function(){
-         $(".e_Cartman-mount").css({"display": "none", "background-position": "0px 0px" });  
-      });
+      
+      song(); 
+             
+  }
+  
+  function song(){ // анимация песенки.
+          $("#Cartman-mount").css({"display": "block"});
+            var conv = document.getElementById("Cartman-mount");      
+            var mount =  conv.getContext('2d');
+            conv.height = 10;
+            conv.width = 20;
+            var pic = new Image();
+            pic.src = "img/wtf2.png"; 
+            
+          speak( 110, mount, pic);
+          
+         
+          
+  }
+  
+  function speak(time, mount, pic) {
+      var i=0;
+      var b = time;
+      var coords = new Array( -10, -35, -65, -92, -132, -153, -65, -10, -132, -10, -35, -153, -35, -65, -92, -132, -153, -65, -10, -132, -10, -35, -153, -35, -65, -92, -132, -153, -65, -10, -132, -10, -35, -153, 
+                                -10, -35, -65, -92, -132, -153, -65, -10, -132, -10, -35, -153, -35, -65, -92, -132, -153, -65, -10, -132, -10, -35, -153, -35, -65, -92, -132, -153, -65, -10, -132, -10, -35, -153,
+                                -10, -35, -65, -92, -132, -153, -65, -10, -132, -10, -35, -153, -35, -65, -92, -132, -153, -65, -10, -132, -10, -35, -153, -35, -65, -92, -132, -153, -65, -10, -132, -10, -35, -153,
+                                -10, -35, -65, -92, -132, -153, -65, -10, -132, -10, -35, -153, -35, -65, -92, -132, -153, -65, -10, -132, -10, -35, -153, -35, -65, -92, -132, -153, -65, -10, -132, -10, -35, -153,
+                                -10, -35, -65, -92, -132, -153, -65, -10, -132, -10, -35, -153, -35, -65, -92, -132, -153, -65, -10, -132, -10, -35, -153, -35, -65, -92, -132, -153, -65, -10, -132, -10, -35, -153
+        );
+      
+      function animation(i, mount, pic){            
+            
+            mount.clearRect(0, 0, 20, 10); 
+            mount.drawImage(pic, coords[i], 0, 680, 10);           
+          
+          if(i<b){                        
+                i=i+1;                    
+            setTimeout(
+                function(){                    
+                    animation(i, mount, pic)
+                }, 100
+            );
+           }else{
+              $("#Cartman-mount").css({"display": "none"});
+              $(".b_speak-bable-cartman").css({"display": "none"});
+              return true;          
+           }
+           
+        }
+        animation(0, mount, pic);
   }
  
