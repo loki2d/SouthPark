@@ -1,0 +1,33 @@
+.conteiner {
+    height: 300px;
+    width: 800px;
+    background: black;
+    color: #fff;
+    padding: 10px;
+}
+.answer {
+    height: 200px;
+    background: white;
+    margin-bottom: 10px;
+    color: black;
+}
+.asc {
+    height: 80px;
+    background: #edbd8d;
+    padding:20px;
+}
+.cartman_chat {
+    height: 70px;
+    width: 100%;
+    padding: 10px;
+    resize: none;
+    background: #ccc;
+    color: blue;
+}
+.send {
+    cursor: pointer;
+}
+.e_speacBable-chat {
+    border: 1px solid green;
+    height: 60px;
+}
