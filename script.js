@@ -6,9 +6,9 @@ Resize();                               // ресайзим див в котор
 
     $(".i_menu li").click(function(){
         var linkName = $(this).attr("goto");
-        $(".i_wBlock").animate({"margin-left": "-"+width+"px"}, 1000, function(){   
+       // $(".i_wBlock").animate({"margin-left": "-"+width+"px"}, 1000, function(){   
             Download_block(linkName);
-        }); 
+        //}); 
         
     });
     
@@ -38,13 +38,15 @@ function Resize(){
 }
 
 
-function Download_block(pageName){ 
-     var page =  $(".b_"+pageName);
+function Download_block(pageName){ // делаем запрос на данные к базе с помощю файла .php
+     var page = $(".b_"+pageName);
      var positionEl = page.offset();
-     $(".i_wBlock").animate({"margin-left": "-"+positionEl.left+"px"}, 1000, function(){
-       
-     });
-     
+    if( positionEl.left != 0){
+        var margin = $(".i_wBlock").css("margin-left");
+        var slide = ( -((margin.substring(0, (margin.length)-2))*1) + positionEl.left);        
+        $(".i_wBlock").animate({"margin-left": "-"+slide +"px"}, 1000);
+    }
+    
         
      
 //     $.ajax({

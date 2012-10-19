@@ -37,8 +37,7 @@
               <li class="e_menu e_menu-cartman"  goto="Cartman">Картман</li>
               <li class="e_menu e_menu-stan" goto="Stan">Стен</li>
               <li class="e_menu e_menu-kail"  goto="Kail">Каил</li>
-              <li class="e_menu e_menu-kenny" goto="Kenny">Кенни</li>
-              <li class="e_menu e_menu-tags">Теги</li>
+              <li class="e_menu e_menu-kenny" goto="Kenny">Кенни</li>             
           </ul>
        </div>
        <div class="i_wropper">
