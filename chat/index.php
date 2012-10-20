@@ -18,11 +18,15 @@
                             $answer.prepend( $Content );  
                             $text.val("");
                             
+                            var $sound = document.getElementById("audio");                   
+                             $sound.play();
+                            
                           }else {
                               
-                            var $Content =  dateTime.getHours() +":"+dateTime.getMinutes()+" /> GO AWEY!<br />";
+                             var $Content =  dateTime.getHours() +":"+dateTime.getMinutes()+" /> GO AWEY!<br />";
                              $answer.prepend( $Content );  
                              $text.val("");
+                                                
                               
                           }
                        
@@ -33,6 +37,7 @@
         </script>
     </head>
     <body>
+        <audio class="cartman_audio" target="cartman" id="audio" src="../audio/test.ogg" ></audio>
         <div class="conteiner">
             <div class="answer">
                 <div>
