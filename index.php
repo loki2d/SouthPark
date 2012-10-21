@@ -63,13 +63,9 @@
                    <div class="b_char-Stan"></div>
                    <div class="b_char-Kail"></div>
                    <div class="b_char-Kenny"></div>
-                   <div><img src="img/wtf2.png" />
-                       </div>
+                  
                    
-               </div>
-               <div class="b_wArea b_uploadScreen">
-                   Загрузка...
-               </div>
+               </div>             
                <div class="b_wArea b_Kenny"> 
                     <div class="e_kenny"></div>
                     <div class="e_kenny-speak">
@@ -117,15 +113,17 @@
                </div>
                <div class="b_wArea b_Cartman" > 
                     <div class="e_Cartman"></div>
-                    <div class="e_cartman-speak">
-                        Cartman!                       
+                    <div class="e_cartman-speakBable">
+                                 hi, man!
                     </div>
-                    <div class="b_chat e_chat-Cartman" >
+                   
+                    <div class="b_chat" >
+                        <div class="b_chat-Cartman">                             
+                        </div>                        
                         <div class="e_chat-Cartman">
                             <div class="e_cient-say"></div>
                             <div>
                                 <input tyle="text" class="e_cliet-text" name="say" value="" palceholder="что скажешь?"/>
-                                
                             </div>
                         </div>
                     </div>
