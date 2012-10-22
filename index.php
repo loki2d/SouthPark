@@ -72,7 +72,7 @@
                 
                  <script type="text/javascript">           
                     $(function(){
-                        $(".send").click(function(){                 
+                        $(".send").click(function(){
                            var $text =  $(this).prev('input');
                            var $answer = $(this).parent("div.ask").prev("div.answer").children(".e_speacBable-chat");    
 
@@ -85,7 +85,8 @@
                                     $text.val("");
 
                                     var $sound = document.getElementById("audio");                   
-                                     $sound.play();
+                                    $sound.play();
+                                     
 
                                   }else {
 
@@ -94,6 +95,7 @@
                                      $text.val("");
                                   }
                               });
+                              return false;
                         });
                     });            
                 </script>
@@ -113,7 +115,7 @@
                     </div> 
                    <div class="ask">
                         <input type="text" name="cartman" class="cartman_chat" value=""/>
-                        <span class="send">Send</span>
+                        <a class="send" href="#cartman">Send</a>
                    </div>
                    
                </div>

@@ -133,59 +133,58 @@ html {
         }        
         .b_char-Cartman{
             position: absolute;   
-            top: 60%;
+            top: 70%;
             left: 27%;
             height: 27%;
             width: 14%;           
             background: url(img/cartman.png) 0px 0px no-repeat;
             background-size: contain;
-            background-size: 100% 100%;
+           
         }
         .b_char-Stan{
             position: absolute;
-            top: 56%;
+            top: 66%;
             left: 46%;
             height: 30%;
             width: 10%;             
             background: url(img/Stan.png) 0px 0px no-repeat;
             background-size: contain;
-            background-size: 100% 100%;
+           
         }
         .b_char-Kail{
             position: absolute;
-            top: 56%;
+            top: 67%;
             left: 59%;
             height: 30%;
             width: 12%;            
             background: url(img/kail.png) 0px 0px no-repeat;
             background-size: contain;
-            background-size: 100% 100%;
+            
 
         }
         .b_char-Kenny {
             position: absolute;
-            top: 56%;
+            top: 66%;
             left: 76%;
             height: 30%;
             width: 12%;              
             background: url(img/kenny.png) 0px 0px no-repeat;
             background-size: contain;
-            background-size: 100% 100%;
-        }        
+        }
         
         
         
 .b_Stan {
-    background: url("img/H2.JPG") center no-repeat;
+    background: url("img/H2.jpg") center no-repeat;
 }
 .b_Kenny {
-    background: url("img/H2.JPG") center no-repeat;
+    background: url("img/H2.jpg") center no-repeat;
 }
 .b_Cartman {
-    background: url("img/H2.JPG") center no-repeat;
+    background: url("img/H2.jpg") center no-repeat;
 }
 .b_Kail {
-    background: url("img/H2.JPG") center no-repeat;
+    background: url("img/H2.jpg") center no-repeat;
 }
 
 .b_chat {

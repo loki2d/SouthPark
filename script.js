@@ -69,9 +69,8 @@ function Download_block(pageName){ // делаем запрос на данны�
       
       $(".b_speak-bable-cartman").css({"display": "block"});
         var snd = document.getElementsByTagName("audio")[0];        
-        snd.play();
-      
-      song(); 
+        snd.play();      
+        song(); 
              
   }
   
