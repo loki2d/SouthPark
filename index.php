@@ -42,11 +42,13 @@
        </div>
        <div class="i_wropper">
            <div class="i_wBlock" >
+               <!--Главная-->
                <div class="b_wArea b_home" name="home"> 
+                    <canvas id="Cartman-mount">                           
+                    </canvas> 
                    <div class="b_char-Cartman">                       
                        
-                       <canvas id="Cartman-mount">                           
-                       </canvas> 
+                      
                        
                        <audio class="Cartman_hi">
                            <source id="Cartman_hi" src="audio/test.ogg"  type="audio/ogg">                 
@@ -65,25 +67,59 @@
                    <div class="b_char-Kenny"></div>
                   
                    
-               </div> 
-               <div class="b_wArea b_Cartman" > 
-                    <div class="e_Cartman"></div>
-                    <div class="e_cartman-speakBable">
-                                 hi, man!
-                    </div>
-                   
-                    <div class="b_chat" >
-                        <div class="b_chat-Cartman">                             
-                        </div>                        
-                        <div class="e_chat-Cartman">
-                            <div class="e_cient-say"></div>
-                            <div>
-                                <input tyle="text" class="e_cliet-text" name="say" value="" palceholder="что скажешь?"/>
-                            </div>
-                        </div>
-                    </div>
                </div>
-              
+                <!--Картман-->
+                
+                 <script type="text/javascript">           
+                    $(function(){
+                        $(".send").click(function(){                 
+                           var $text =  $(this).prev('input');
+                           var $answer = $(this).parent("div.ask").prev("div.answer").children(".e_speacBable-chat");    
+
+                           $.getJSON('answ.php',"ask="+$text.val(), function(data){ 
+                                   var dateTime =  new Date();                           
+                                if (data){                        
+
+                                    var $Content =  dateTime.getHours() +":"+dateTime.getMinutes()+" />" + data.answer +"<br />";
+                                    $answer.prepend( $Content );  
+                                    $text.val("");
+
+                                    var $sound = document.getElementById("audio");                   
+                                     $sound.play();
+
+                                  }else {
+
+                                     var $Content =  dateTime.getHours() +":"+dateTime.getMinutes()+" /> GO AWEY!<br />";
+                                     $answer.prepend( $Content );  
+                                     $text.val("");
+                                  }
+                              });
+                        });
+                    });            
+                </script>
+                
+                
+                
+                
+               <div class="b_wArea b_Cartman" >                    
+                   <audio class="cartman_audio" target="cartman" id="audio" src="audio/test.ogg" ></audio>                    
+                   <div class="e_Cartman">
+                       
+                   </div>
+                    <div class="e_cartman-speakBable answer">
+                        <div style="padding: 70px;" class="e_speacBable-chat" target="cartman">
+                            
+                        </div>                                
+                    </div> 
+                   <div class="ask">
+                        <input type="text" name="cartman" class="cartman_chat" value=""/>
+                        <span class="send">Send</span>
+                   </div>
+                   
+               </div>
+                
+                
+ <!-----Стен ---------------------------------->
                 <div class="b_wArea b_Stan" > 
                     <div class="e_stan"></div>
                     <div class="e_stan-speak">
