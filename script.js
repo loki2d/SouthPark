@@ -4,11 +4,17 @@ var height =  $(window).height();       //
 
 Resize();                               // ресайзим див в котором двигаются картинки.
 
-    $(".i_menu li").click(function(){
+    $(".i_menu li").click(function(){      
+        var $link = $(this);
         var linkName = $(this).attr("goto");
-       // $(".i_wBlock").animate({"margin-left": "-"+width+"px"}, 1000, function(){   
-            Download_block(linkName);
-        //}); 
+        var $menu = $(".b_menu");
+            $menu.removeClass("home Cartman Kenny Stan Kail");
+            $menu.addClass(linkName);
+        
+        Download_block(linkName);
+        
+            //
+            $link.addClass("e_menu-active");
         
     });
     

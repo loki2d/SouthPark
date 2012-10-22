@@ -32,12 +32,12 @@
     </head>
     <body>
        <div class="i_menu">
-          <ul class="b_menu">
-              <li class="e_menu e_menu-home e_menu-active" goto="home">Главная</li>
-              <li class="e_menu e_menu-cartman"  goto="Cartman">Картман</li>
-              <li class="e_menu e_menu-stan" goto="Stan">Стен</li>
-              <li class="e_menu e_menu-kail"  goto="Kail">Каил</li>
-              <li class="e_menu e_menu-kenny" goto="Kenny">Кенни</li>             
+          <ul class="b_menu home">
+              <li class="e_menu e_menu-home e_menu-active" goto="home"></li>
+              <li class="e_menu e_menu-cartman"  goto="Cartman"></li>
+              <li class="e_menu e_menu-stan" goto="Stan"></li>
+              <li class="e_menu e_menu-kail"  goto="Kail"></li>
+              <li class="e_menu e_menu-kenny" goto="Kenny"></li>             
           </ul>
        </div>
        <div class="i_wropper">
@@ -65,22 +65,25 @@
                    <div class="b_char-Kenny"></div>
                   
                    
-               </div>             
-               <div class="b_wArea b_Kenny"> 
-                    <div class="e_kenny"></div>
-                    <div class="e_kenny-speak">
-                        Kenny!                       
+               </div> 
+               <div class="b_wArea b_Cartman" > 
+                    <div class="e_Cartman"></div>
+                    <div class="e_cartman-speakBable">
+                                 hi, man!
                     </div>
-                    <div class="b_chat e_chat-Kanny" >
-                        <div class="e_chat-Kanny">
+                   
+                    <div class="b_chat" >
+                        <div class="b_chat-Cartman">                             
+                        </div>                        
+                        <div class="e_chat-Cartman">
                             <div class="e_cient-say"></div>
                             <div>
                                 <input tyle="text" class="e_cliet-text" name="say" value="" palceholder="что скажешь?"/>
-                                
                             </div>
                         </div>
                     </div>
                </div>
+              
                 <div class="b_wArea b_Stan" > 
                     <div class="e_stan"></div>
                     <div class="e_stan-speak">
@@ -111,19 +114,17 @@
                         </div>
                     </div>
                </div>
-               <div class="b_wArea b_Cartman" > 
-                    <div class="e_Cartman"></div>
-                    <div class="e_cartman-speakBable">
-                                 hi, man!
+                <div class="b_wArea b_Kenny"> 
+                    <div class="e_kenny"></div>
+                    <div class="e_kenny-speak">
+                        Kenny!                       
                     </div>
-                   
-                    <div class="b_chat" >
-                        <div class="b_chat-Cartman">                             
-                        </div>                        
-                        <div class="e_chat-Cartman">
+                    <div class="b_chat e_chat-Kanny" >
+                        <div class="e_chat-Kanny">
                             <div class="e_cient-say"></div>
                             <div>
                                 <input tyle="text" class="e_cliet-text" name="say" value="" palceholder="что скажешь?"/>
+                                
                             </div>
                         </div>
                     </div>

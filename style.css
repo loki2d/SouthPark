@@ -11,6 +11,7 @@ body {
     height: 100%;
     margin: 0px;
     padding: 0px;
+    min-width: 1024px;
 } 
 html {
     height: 100%;
@@ -21,6 +22,7 @@ html {
     height: 100%;
     width: 100%;
     overflow: hidden;
+   min-width: 1024px;
 }
 .i_wBlock{    
     width: 100000px;
@@ -46,28 +48,55 @@ html {
     position: absolute;
     top: 20px;
     right: 40px;
-    width: 400px;
     height: 20px;
     z-index: 10;
+    text-align: right
 }
 .b_menu {
     list-style: none;
     margin: 0px;
     padding:0px; 
     text-align: center;
+    margin-right: 40px;
 }
 .e_menu {
    display: inline-block;    
-   padding:  0px 5px;
+   width: 220px;
+   height: 115px;
    line-height: 30px;
    cursor: pointer;
    margin: 0px 2px;
-   border: 1px solid bisque;
+   background: url("img/menu.png") no-repeat;
+   
 }
-.e_menu-active {
-    border: 1px dotted red;
+.e_menu-home{
+     background-position: 0px 0px;
+     width: 215px;
 }
+.e_menu-home:hover, .home .e_menu-home {background-position: 0px -120px}
+.e_menu-cartman {
+    background-position: -563px 0px;
+    width: 210px;
+}
+    .e_menu-cartman:hover, .Cartman .e_menu-cartman{background-position: -563px -120px;}
 
+.e_menu-stan {
+    background-position: -224px 0px;
+    width: 146px;
+}
+    .e_menu-stan:hover, .Stan .e_menu-stan{background-position: -224px -120px;}
+
+.e_menu-kail {
+    background-position: -780px 0px;
+    width: 142px;
+}
+    .e_menu-kail:hover, .Kail .e_menu-kail{background-position: -780px -120px;}
+
+.e_menu-kenny {
+    background-position: -375px 0px;
+    width: 178px;
+}
+    .e_menu-kenny:hover, .Kenny .e_menu-kenny {background-position: -375px -120px;}
 /*Action blocks
 */
 .b_wArea {
@@ -78,26 +107,6 @@ html {
 .b_home {
     background: url("img/H1.JPG") center no-repeat;
 }
-        .b_char-Kenny {
-                position: absolute;
-                top: 67%;
-                left: 61%;
-                height: 17%;
-                width: 8%;
-              
-                background: url(img/kenny.png) 0px 0px no-repeat;
-                background-size: contain;
-        }
-        .b_char-Cartman{
-            position: absolute;   
-            top: 70%;
-            left: 28%;
-            height: 17%;
-            width: 10%;
-           
-            background: url(img/cartman.png) 0px 0px no-repeat;
-            background-size: contain;
-        }
         #Cartman-mount {
             position:  relative;
             height: 10px;
@@ -107,7 +116,7 @@ html {
             background-color: #edbd8d; 
             display:none;
             /*border: 1px solid green;*/
-        }
+        }        
         .b_speak-bable-cartman {
             display: none;
             padding-top: 30px;
@@ -120,43 +129,61 @@ html {
             border-radius: 100px;
                 background: aliceblue;
         }
-        
+        .b_char-Cartman{
+            position: absolute;   
+            top: 58%;
+            left: 24%;
+            height: 30%;
+            width: 30%;           
+            background: url(img/cartman.png) 0px 0px no-repeat;
+            background-size: contain;
+        }
+        .b_char-Stan{
+            position: absolute;
+            top: 53%;
+            left: 42%;
+            height: 35%;
+            width: 20%;             
+            background: url(img/Stan.png) 0px 0px no-repeat;
+            background-size: contain;
+        }
         .b_char-Kail{
             position: absolute;
-            top: 67%;
-            left: 50%;
-            height: 21%;
-            width: 8%;
-            
+            top: 53%;
+            left: 55%;
+            height: 35%;
+            width: 25%;            
             background: url(img/kail.png) 0px 0px no-repeat;
             background-size: contain;
 
         }
-        .b_char-Stan{
+        .b_char-Kenny {
             position: absolute;
-            top: 67%;
-            left: 41%;
-            height: 21%;
-            width: 8%;             
-            background: url(img/Stan.png) 0px 0px no-repeat;
+            top: 53%;
+            left: 73%;
+            height: 35%;
+            width: 25%;              
+            background: url(img/kenny.png) 0px 0px no-repeat;
             background-size: contain;
-        }
+        }        
+        
+        
         
 .b_Stan {
-    background: url("img/H1.JPG") center no-repeat;
+    background: url("img/H2.JPG") center no-repeat;
 }
 .b_Kenny {
-    background: url("img/H1.JPG") center no-repeat;
+    background: url("img/H2.JPG") center no-repeat;
 }
 .b_Cartman {
-    background: url("img/H1.JPG") center no-repeat;
+    background: url("img/H2.JPG") center no-repeat;
 }
 .b_Kail {
-    background: url("img/H1.JPG") center no-repeat;
+    background: url("img/H2.JPG") center no-repeat;
 }
 
 .b_chat {
-   display: block;
+   display: none;
    height: 20%;   
    background-color: #fff;
    border: 2px solid white;     
@@ -168,3 +195,6 @@ html {
 }
 
 /*Старница Картамана*/
+/*Старница Стена*/
+/*Старница Каила*/
+/*Старница Кенни*/
