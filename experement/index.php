@@ -7,15 +7,23 @@
 $(function(){
          /*данные*/
        var $Date =  '{'+
+        '"client":{'+
+            '"widthOld":"'+$(window).width()+'",'+
+            '"heightOld":"'+$(window).height()+'",'+
+            '"widthNew":"'+$(window).width()+'",'+
+            '"heightNew":"'+$(window).height()+'",'+
+            '"widthK":"1",'+
+            '"heightK":"1"'+
+        '},'+
 	'"page": {'+
 		'"background":"/img/H1.JPG",'+
 		'"name":"home",'+
 		'"elements": {'+
 			'"berg1":{"top":"0","left":"-10%", "z-index": "10",'+
                                 '"background":"url(../img/berg.png) no-repeat", "background-size" : "contain"},'+
-                      '"berg2":{"top":"0","left":"30%", "z-index": "10",'+
+                        '"berg2":{"top":"0","left":"30%", "z-index": "10",'+
                                 '"background":"url(../img/berg.png) no-repeat", "background-size" : "contain"},'+
-                     '"cartman":{"top":"60%","left":"15%", "z-index":"100", "background":"url(../img/cartman.png) no-repeat", "background-size":"contain"},'+
+                        '"cartman":{"top":"60%","left":"15%", "z-index":"100", "background":"url(../img/cartman.png) no-repeat", "background-size":"contain"},'+
 			'"kail":{"top":"60%","left":"35%", "z-index":"100", "background":"url(../img/stan.png) no-repeat", "background-size":"contain"},'+
 			'"stan":{"top":"60%","left":"52%", "z-index":"100", "background":"url(../img/kail.png) no-repeat", "background-size":"contain"},'+
 			'"kanny":{"top":"60%","left":"65%", "z-index":"100", "background":"url(../img/kenny.png) no-repeat", "background-size":"contain"}'+		
@@ -24,71 +32,88 @@ $(function(){
 	'"elements":{'+
                 '"berg1":{'+
                      '"name":"berg1",'+
-			'"width":"80",'+
-			'"height":"90",'+
-			'"color":"red"'+
+                     '"calssName":"berg1",'+
+                     
+			'"width_":"80",'+
+			'"height_":"90"'+			
                 '},'+
                 '"berg2":{'+
                      '"name":"berg2",'+
-			'"width":"100",'+
-			'"height":"100",'+
-			'"color":"red"'+
+                     '"className":"berg2",'+
+			'"width_":"100",'+
+			'"height_":"100"'+
+			
                 '},'+
 		'"cartman":{'+
                      '"name":"cartman",'+
-			'"width":"10",'+
-			'"height":"23",'+
-			'"color":"red"'+
+                     '"className":"cartman",'+
+			'"width_":"10",'+
+			'"height_":"23"'+
+			
 		'},'+
 		'"kail": {'+
 			'"name":"kail",'+
-                      '"width":"8",'+
-			'"height":"27",'+
-			'"color":"green"'+
+			'"className":"kail",'+
+                        '"width_":"8",'+
+			'"height_":"27"'+
+			
 		'},'+
 		'"stan": {'+
                       '"name":"stan",'+
-			'"width":"8",'+
-			'"height":"27",'+
-			'"color":"blue"'+	
+                      '"className":"stan",'+
+			'"width_":"8",'+
+			'"height_":"27"'+
+			
 		'},'+
 		'"kanny": {'+
                       '"name":"kanny",'+
-			'"width":"8",'+
-			'"height":"27",'+
-			'"color":"black"'+
+                      '"className":"kanny",'+
+			'"width_":"8",'+
+			'"height_":"27"'+
+			
+			
 		'}'+
 	'}'+	
 '}';
 
-    var myDate  = $.parseJSON($Date); //приобразуем в массив 
+    var myDate  = $.parseJSON($Date); //приобразуем в массив     
+    sizeUpdate(1, myDate, 1, 1);
+    //console.log(myDate);
     
-    compile(myDate);   // компелируем стили.   
+    compile(myDate);   // компелируем стили. 
     
-    //это все можно захреначить в персонажа а точнее в его объект.
-    $(".cartman").live("click", function(){ // создаемс событие на клик по картмену
-        animate(myDate);                    //запускаем функцию анимации
+     $(window).resize(function(){ // если ресайзится делаем ресайз ) 
+        Resize(myDate);
     });
     
-    //Анимационная функция     
-    function animate(myDate){
-        var param = myDate.page.elements.cartman.top //деламе переменную для простого обращения к данным. как ссылка она сука не рабоатет 
-                 var top  = param.substr(0, param.length - 1); //тут обрезаем %
-         top = top*1;         // делаем число надо что-то сделать в классе чтоб этим не заниматься.
-         top = top - 1;         // делаем шаг
-         myDate.page.elements.cartman.top = top + "%";     // возвращаем число в обект.
-        ReStyle(myDate); //обновляем стили на странице.
-       // document.write(top+"\n\r");
-        if (param.substr(0, param.length - 1) >= 0){ // проверям точку запуска. 
-            setTimeout(function(){animate(myDate)}, 50); // задаем паузу 
-        }
-    }
-            
  });
  
+
+var sizeUpdate = function(firstTime, date, wK, hK){     
+    if (firstTime){
+       $.each(date.elements, function(index, el){
+            this.width_ = (this.width_ * date.client.widthOld)/100; // переводим в пиксили
+            this.height_ = (this.height_ * date.client.heightOld)/100; // переводим в пиксили
+            this.q = this.height_ / this.width_ // получаем коэфициент
+            console.log(this.height_ +"/"+ this.width_ +" "+ this.name);
+            console.log(this.q);
+        });
+    }else {
+         $.each(date.elements, function(index, el){
+           console.log(this.width_+"*"+wK+"=" );
+            this.width_ = this.width_  * wK // домножаем на отношение сторон
+            this.height_ = this.width_ * this.q; // ресайзим блок
+            console.log(this.width_);
+            $("."+this.name).css({"width": this.width_, "height": this.height_});
+        });
+    }  
+};
+
+ 
  var compile = function (myDate){
-   $.each(myDate.elements, function(i, val){        
-        $("#info").append("<div class='"+val.name+"' style='width:"+val.width+"%; height: "+val.height+"%;'>"+val.name+"</div>");          
+   $.each(myDate.elements, function(i, val){
+       //console.log(this);
+        $("#info").append("<div class='"+this.name+"' style='width:"+this.width_+"px; height: "+this.height_+"px; border: 1px solid green;'>"+this.name+"</div>");          
     });
     
     var $style="";
@@ -100,11 +125,11 @@ $(function(){
         $style = $style + "} \r\n ";
        });
     
-     $('head').append("<style name='dinamic'>"+ $style+"</style>");     
+     $('head').append("<style>"+ $style+"</style>");     
  }
 
  function ReStyle(myDate){
-    
+       
     var $style="";
     $.each(myDate.page.elements, function(i, val){       
         $style= $style+"."+i+"{position: absolute; ";
@@ -117,9 +142,35 @@ $(function(){
      
  }
  
+ function Resize(myDate){
+ //console.log(myDate)
+    var OldW = myDate.client.widthOld;
+    var OldH = myDate.client.heightOld;
+    
+    var width = $(window).width(); // получаем размер окошка 
+    var height =  $(window).height(); // получаем размер окошка 
+    var widthK = OldW / width ;
+    var heightK = OldH / height ;
+    
+        myDate.client.widthK = widthK;
+        myDate.client.heightK = heightK;
+        OldW = $(window).width();
+        OldH = $(window).height();
+   sizeUpdate(0, myDate, widthK, heightK);
+    
+    
+    
+   // $.each(myDate.elements, function(i, val){
+    
+       
+        //$("#info").append("<div class='"+this.name+"' style='width:"+this.width_+"px; height: "+this.height_+"px;'>"+this.name+"</div>");          
+    //});   
+   
+}
+ 
  </script>
  <style>                   
-     body{height: 100%; overflow: hidden;}
+     body{height: 100%;  overflow: hidden; background: url("../img/H1.JPG") center top no-repeat; background-size: cover;}
      html {height:100%}
      div#info {height: 100%; overflow: hidden;}
     </style>
