@@ -76,10 +76,10 @@ $(function(){
 	'}'+	
 '}';
 
-    var myDate  = $.parseJSON($Date); //приобразуем в массив     
-    sizeUpdate(1, myDate, 1, 1);
-    //console.log(myDate);
-    
+    var myDate  = $.parseJSON($Date); //приобразуем в массив    
+	
+    sizeUpdate(1, myDate, 1, 1);     
+	
     compile(myDate);   // компелируем стили. 
     
     $(window).resize(function(){ // если ресайзится делаем ресайз ) 
@@ -94,15 +94,25 @@ var sizeUpdate = function(firstTime, date, wK, hK){
        $.each(date.elements, function(index, el){
             this.width_ = (this.width_ * date.client.widthOld)/100; // переводим в пиксили
             this.height_ = (this.height_ * date.client.heightOld)/100; // переводим в пиксили
-            this.q =  this.height_ / this.width_ ;   // получаем коэфициент
-            console.log(this.height_ +"/"+ this.width_ +" "+ this.name);
-            console.log(this.q);
+            this.q =  this.height_ / this.width_ ;   // получаем коэфициент           
         });
     }else {
-         $.each(date.elements, function(index, el){           
-            this.width_ = this.width_  *  wK // домножаем на изменение сторон
-            this.height_ = this.width_ * this.q; // ресайзим блок
-            
+        
+		$.each(date.elements, function(index, el){           
+            console.log (wK+" " +hK);
+		
+			 if  ( wK != 1 && hK != 1 ){
+				this.width_ = this.width_  *  wK; // домножаем на изменение сторон
+				this.height_ = this.width_ * this.q; // ресайзим блок
+			}
+			else if(wK  != 1){
+				this.width_ = this.width_  *  wK // домножаем на изменение сторон
+				this.height_ = this.width_ * this.q // ресайзим блок
+            }
+			else if(hK  != 1){
+				this.height_ = this.height_ *  hK // домножаем на изменение сторон
+				this.width_ = this.height_  / this.q // ресайзим блок
+			} 
             $("."+this.name).css({"width": this.width_, "height": this.height_});
         });
     }  
@@ -110,8 +120,7 @@ var sizeUpdate = function(firstTime, date, wK, hK){
 
  
  var compile = function (myDate){
-   $.each(myDate.elements, function(i, val){
-       //console.log(this);
+   $.each(myDate.elements, function(i, val){     
         $("#info").append("<div class='"+this.name+"' style='width:"+this.width_+"px; height: "+this.height_+"px; border: 1px solid green;'>"+this.name+"</div>");          
     });
     
