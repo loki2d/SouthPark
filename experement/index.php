@@ -82,8 +82,8 @@ $(function(){
     
     compile(myDate);   // компелируем стили. 
     
-     $(window).resize(function(){ // если ресайзится делаем ресайз ) 
-        Resize(myDate);
+    $(window).resize(function(){ // если ресайзится делаем ресайз ) 
+    Resize(myDate);
     });
     
  });
@@ -94,16 +94,15 @@ var sizeUpdate = function(firstTime, date, wK, hK){
        $.each(date.elements, function(index, el){
             this.width_ = (this.width_ * date.client.widthOld)/100; // переводим в пиксили
             this.height_ = (this.height_ * date.client.heightOld)/100; // переводим в пиксили
-            this.q = this.height_ / this.width_ // получаем коэфициент
+            this.q =  this.height_ / this.width_ ;   // получаем коэфициент
             console.log(this.height_ +"/"+ this.width_ +" "+ this.name);
             console.log(this.q);
         });
     }else {
-         $.each(date.elements, function(index, el){
-           console.log(this.width_+"*"+wK+"=" );
-            this.width_ = this.width_  * wK // домножаем на отношение сторон
+         $.each(date.elements, function(index, el){           
+            this.width_ = this.width_  * wK // домножаем на изменение сторон
             this.height_ = this.width_ * this.q; // ресайзим блок
-            console.log(this.width_);
+            
             $("."+this.name).css({"width": this.width_, "height": this.height_});
         });
     }  
@@ -149,8 +148,8 @@ var sizeUpdate = function(firstTime, date, wK, hK){
     
     var width = $(window).width(); // получаем размер окошка 
     var height =  $(window).height(); // получаем размер окошка 
-    var widthK = OldW / width ;
-    var heightK = OldH / height ;
+    var widthK =  width / OldW ;
+    var heightK = height / OldH   ;
     
         myDate.client.widthK = widthK;
         myDate.client.heightK = heightK;
