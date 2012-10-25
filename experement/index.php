@@ -100,7 +100,7 @@ var sizeUpdate = function(firstTime, date, wK, hK){
         });
     }else {
          $.each(date.elements, function(index, el){           
-            this.width_ = this.width_  * wK // домножаем на изменение сторон
+            this.width_ = this.width_  *  wK // домножаем на изменение сторон
             this.height_ = this.width_ * this.q; // ресайзим блок
             
             $("."+this.name).css({"width": this.width_, "height": this.height_});
@@ -150,11 +150,11 @@ var sizeUpdate = function(firstTime, date, wK, hK){
     var height =  $(window).height(); // получаем размер окошка 
     var widthK =  width / OldW ;
     var heightK = height / OldH   ;
-    
+    console.log(widthK);
         myDate.client.widthK = widthK;
         myDate.client.heightK = heightK;
-        OldW = $(window).width();
-        OldH = $(window).height();
+        myDate.client.widthOld = $(window).width();
+        myDate.client.heightOld = $(window).height();
    sizeUpdate(0, myDate, widthK, heightK);
     
     
