@@ -1,0 +1,141 @@
+/* 
+    Document   : style
+    Created on : 14.10.2012, 20:26:15
+    Author     : loki2d
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    min-width: 1024px;
+} 
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+.i_wropper {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.i_wBlock{    
+    width: 100000px;
+    height: 100%;
+    position: relative;
+   
+}
+
+.page {    
+    width: 100%;
+    height: 100%;    
+    float: left;
+    position: relative;
+}
+
+.slid {
+   position: absolute;
+   right: 20px;
+   top: 0px;
+}
+
+#home {
+    background: url("../img/H1.JPG") center no-repeat;
+}  
+/*manu*/
+.b_menu {
+    display: block;
+    height: 40px;
+    position: absolute;
+    top:10px;
+    left: 30px;
+    width: 800px;
+    z-index: 100;
+}
+.e_menu {
+    display: inline-block;
+    height: 40px;
+    padding: 0px 10px;
+    line-height: 40px;
+}
+
+ /*Action blocks
+*/
+.b_wArea {
+  
+}
+.audio_store {
+    visibility:hidden;
+    height: 1px;
+    width: 1px;
+    position: absolute; 
+    top: 0px;
+}
+
+/*Старница Картамана*/
+#chatCartman {
+    width:100%;
+    height: 100%;
+    float: left;    
+    background: url(../img/H2.jpg) 0px 0px no-repeat;
+}
+
+.chat {
+    height: 94px;
+    width: 686px;
+    padding: 20px 0px 0px 55px;
+    background: url("../img/chat_bg.png") no-repeat;
+    position: absolute;
+    bottom: 0px;
+    left: 30%;
+    z-index: 20;    
+}
+
+.chat-input {
+    height: 50px;
+    border: 3px solid #d5a83c;
+    width: 490px;
+    padding: 0px 100px 0px 10px;
+}
+
+.chat-heder{
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+.input_area{
+    position: relative;
+}
+.say {
+    height: 52px;
+    width: 86px;
+    display: block;
+    position: absolute;
+    right: 80px;
+    top: 10px;
+    background: url("../img/send.png") no-repeat;
+}
+.scotch_l {
+    background: url("../img/scotch_l.png") no-repeat; 
+    height: 45px;
+    width: 57px;
+    position: absolute;
+    left: -31px;
+    top: -18px;
+}
+.scotch_r{
+    background: url("../img/scotch_r.png") no-repeat;
+    position: absolute;
+    width: 52px;
+    height: 44px;
+    right: 57px;
+    top: -21px;
+}
+/*Старница Стена*/
+/*Старница Каила*/
+/*Старница Кенни*/
