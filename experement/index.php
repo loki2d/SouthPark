@@ -19,40 +19,24 @@ $(function(){
 		'"background":"/img/H1.JPG",'+
 		'"name":"home",'+
 		'"elements": {'+
-			'"berg1":{"top":"0","left":"-10%", "z-index": "10",'+
-                                '"background":"url(../img/berg.png) no-repeat", "background-size" : "contain"},'+
-                        '"berg2":{"top":"0","left":"30%", "z-index": "10",'+
-                                '"background":"url(../img/berg.png) no-repeat", "background-size" : "contain"},'+
-                        '"cartman":{"top":"60%","left":"15%", "z-index":"100", "background":"url(../img/cartman.png) no-repeat", "background-size":"contain"},'+
+			'"cartman":{"top":"60%","left":"15%", "z-index":"100", "background":"url(../img/cartman.png) no-repeat", "background-size":"contain"},'+
 			'"kail":{"top":"60%","left":"35%", "z-index":"100", "background":"url(../img/stan.png) no-repeat", "background-size":"contain"},'+
 			'"stan":{"top":"60%","left":"52%", "z-index":"100", "background":"url(../img/kail.png) no-repeat", "background-size":"contain"},'+
 			'"kanny":{"top":"60%","left":"65%", "z-index":"100", "background":"url(../img/kenny.png) no-repeat", "background-size":"contain"}'+		
 		'}'+
 	'},'+
 	'"elements":{'+
-                '"berg1":{'+
-                     '"name":"berg1",'+
-                     '"calssName":"berg1",'+
-                     
-			'"width_":"80",'+
-			'"height_":"90"'+			
-                '},'+
-                '"berg2":{'+
-                     '"name":"berg2",'+
-                     '"className":"berg2",'+
-			'"width_":"100",'+
-			'"height_":"100"'+
-			
-                '},'+
-		'"cartman":{'+
+               '"cartman":{'+
                      '"name":"cartman",'+
+                     '"pageName":"home",'+
                      '"className":"cartman",'+
-			'"width_":"10",'+
-			'"height_":"23"'+
+                     '"width_":"10",'+
+                     '"height_":"23"'+                    
 			
 		'},'+
 		'"kail": {'+
 			'"name":"kail",'+
+                        '"pageName":"home",'+
 			'"className":"kail",'+
                         '"width_":"8",'+
 			'"height_":"27"'+
@@ -60,6 +44,7 @@ $(function(){
 		'},'+
 		'"stan": {'+
                       '"name":"stan",'+
+                      '"pageName":"home",'+
                       '"className":"stan",'+
 			'"width_":"8",'+
 			'"height_":"27"'+
@@ -67,28 +52,64 @@ $(function(){
 		'},'+
 		'"kanny": {'+
                       '"name":"kanny",'+
+                      '"pageName":"home",'+
                       '"className":"kanny",'+
-			'"width_":"8",'+
-			'"height_":"27"'+
-			
-			
+		      '"width_":"8",'+
+		      '"height_":"27"'+	
+		'},'+
+                '"cartmanChat":{'+
+                     '"name":"cartmanChat",'+
+                     '"pageName":"chat-Cartman",'+
+                     '"className":"cartman",'+
+                     '"width_":"40",'+
+                     '"height_":"43",'+
+                     '"style":"bottom: 0px; left: 20%; position: asolute; background: url(../img/cartman.png) no-repeat; background-size: contain;"'+			
 		'}'+
-	'}'+	
+	'},'+
+        '"parts":{'+
+            '"CartmanMount":{'+        
+                            '"name":"mount",'+
+                            '"parent":"cartman",'+                            
+                            '"css":"height: 8%; width: 8%; border: 1px solid green; top: 44%; left: 50%; margin-left: -6%; position: absolute;",'+
+                            '"tagName":"canvas",'+
+                            '"function":"CartmanSpeak"'+            
+            '}'+
+        '}'+
 '}';
 
-    var myDate  = $.parseJSON($Date); //приобразуем в массив    
+ //document.write($Date);
+
+//приобразуем в объект
+var myDate  = $.parseJSON($Date); 
+
+// получаем отношения, и размеры персонажей.    
+sizeUpdate(1, myDate, 1, 1);     
 	
-    sizeUpdate(1, myDate, 1, 1);     
-	
-    compile(myDate);   // компелируем стили. 
+// компелируем стили.    
+   compile(myDate);    
     
-    $(window).resize(function(){ // если ресайзится делаем ресайз ) 
+    
+// проприсовка активных элементов персонажей 
+parts(myDate); 
+
+// если ресайзится делаем ресайз )
+$(window).resize(function(){  
     Resize(myDate);
     });
     
- });
- 
+}); 
 
+// библиотека функций.
+
+
+// проприсовка активных элементов персонажей
+var parts = function(data){
+   $.each(data.parts, function(){
+       $("."+this.parent).append("<"+this.tagName+" class="+this.name+" style='"+this.css+"'></"+this.tagName+">");
+   });
+}
+
+// преобразование размеров.
 var sizeUpdate = function(firstTime, date, wK, hK){     
     if (firstTime){
        $.each(date.elements, function(index, el){
@@ -98,10 +119,9 @@ var sizeUpdate = function(firstTime, date, wK, hK){
         });
     }else {
         
-		$.each(date.elements, function(index, el){           
-            console.log (wK+" " +hK);
+		$.each(date.elements, function(index, el){ 
 		
-			 if  ( wK != 1 && hK != 1 ){
+			 if  ( wK != 1 && hK != 1 ){                             
 				this.width_ = this.width_  *  wK; // домножаем на изменение сторон
 				this.height_ = this.width_ * this.q; // ресайзим блок
 			}
@@ -118,10 +138,11 @@ var sizeUpdate = function(firstTime, date, wK, hK){
     }  
 };
 
- 
+// проприсовка статических объектов на сранице и добавление некоторых стилей
  var compile = function (myDate){
-   $.each(myDate.elements, function(i, val){     
-        $("#info").append("<div class='"+this.name+"' style='width:"+this.width_+"px; height: "+this.height_+"px; border: 1px solid green;'>"+this.name+"</div>");          
+   $.each(myDate.elements, function(i, val){
+       console.log(this.name);
+        $("#"+this.pageName).append("<div class='"+this.name+"' style='width:"+this.width_+"px; height: "+this.height_+"px;'>"+this.name+"</div>");          
     });
     
     var $style="";
@@ -136,6 +157,7 @@ var sizeUpdate = function(firstTime, date, wK, hK){
      $('head').append("<style>"+ $style+"</style>");     
  }
 
+// фунция для перересовки стилей и элементов на странице (Устарела)
  function ReStyle(myDate){
        
     var $style="";
@@ -149,43 +171,41 @@ var sizeUpdate = function(firstTime, date, wK, hK){
    $('head style[name="dinamic"]').text($style);    
      
  }
+ // функция реагирующая на изменения экрана.
  
- function Resize(myDate){
- //console.log(myDate)
+ function Resize(myDate){ 
     var OldW = myDate.client.widthOld;
     var OldH = myDate.client.heightOld;
     
     var width = $(window).width(); // получаем размер окошка 
     var height =  $(window).height(); // получаем размер окошка 
     var widthK =  width / OldW ;
-    var heightK = height / OldH   ;
-    console.log(widthK);
+    var heightK = height / OldH;    
         myDate.client.widthK = widthK;
         myDate.client.heightK = heightK;
         myDate.client.widthOld = $(window).width();
         myDate.client.heightOld = $(window).height();
-   sizeUpdate(0, myDate, widthK, heightK);
-    
-    
-    
-   // $.each(myDate.elements, function(i, val){
-    
-       
-        //$("#info").append("<div class='"+this.name+"' style='width:"+this.width_+"px; height: "+this.height_+"px;'>"+this.name+"</div>");          
-    //});   
+   sizeUpdate(0, myDate, widthK, heightK);      
    
 }
- 
+// коец скрипта. 
  </script>
  <style>                   
      body{height: 100%;  overflow: hidden; background: url("../img/H1.JPG") center top no-repeat; background-size: cover;}
      html {height:100%}
-     div#info {height: 100%; overflow: hidden;}
+     div#home {height: 100%;}
+     div#chat-Cartman { height: 100%;}
+     
     </style>
 </head>
-
-    <body>        
-        <div id="info">             
-        </div>
-    </body>
+<body>        
+    <div id="home">             
+    </div>
+    <div id="chat-Cartman">
+    </div>
+    <audio class="Cartman_hi" type="audio/ogg"  src="../audio/test.ogg">                          
+          Браузер гавно
+     </audio>
+</body>
+    
 </html>
