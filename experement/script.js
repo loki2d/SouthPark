@@ -82,6 +82,8 @@ var $Date =  '{'+
         '}'+
 '}';
 
+var Dialog = "";
+
 $(function(){         
        $(".page").css({"width" : $(window).width()+"px", "height" : $(window).height()+"px"});
        console.log($(window).width());
