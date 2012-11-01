@@ -54,8 +54,8 @@ var $Date =  '{'+
 		'},'+
                 '"cartmanChat":{'+
                      '"name":"Cartamn",'+
-                     '"pageName":"chatCartman",'+
-                     '"className":"homeCartman",'+
+                     '"pageName":"chatCartman",'+ 
+                     '"className":"homeCartman",'+ // он же радитель для частички
                      '"width_":"40",'+
                      '"height_":"43",'+
                      '"style":"bottom: -30px; left: 10%; position: absolute; background: url(../img/cartman.png) no-repeat; background-size: contain;"'+                     
@@ -73,8 +73,8 @@ var $Date =  '{'+
         '"parts":{'+
             '"CartmanMount":{'+        
                             '"name":"mount",'+
-                            '"parent":"cartman",'+                            
-                            '"css":"height: 7%; width: 7%; border: 1px solid green; top: 38%; left: 52%; margin-left: -6%; position: absolute;",'+
+                            '"parent":"homeCartman",'+                            
+                            '"css":"height: 14%; width: 9%; top: 48%; left: 31%; margin-left: -6%; position: absolute;",'+
                             '"className":"cartmanMount",'+
                             '"tagName":"canvas",'+
                             '"function":"CartmanSpeak"'+            
@@ -82,13 +82,40 @@ var $Date =  '{'+
         '}'+
 '}';
 
+
 var Dialog = "";
+
+var dialog = ' {"cartman": {'+
+                '"hi" : {'+
+                    '"name" : "hi",'+
+                    '"pattern" : "hi",'+
+                    '"answer": "Hello!",'+
+                    '"audio" : "cartman-no",'+
+                    '"url":"../audio/no.mp3",'+
+                    '"time":"3"'+
+                 '},'+
+                '"default" : {'+
+                    '"name":"what",'+
+                    '"pattern": "default",'+
+                    '"answer": "What?",'+
+                    '"audio": "cartman-what",'+
+                    '"url":"../audio/carman-what.ogg",'+
+                    '"time":"10"'+
+                    
+                  '},'+
+                '"bitch" : {'+
+                  '"name":"bitch",'+
+                  '"pattern": "[Bb][Ii][Tt][Cc][Hh]",'+
+                  '"answer": "Bitch! Don\'t coll me bitch, bitch!",'+
+                  '"audio": "cartman-bitch",'+
+                  '"url":"../audio/carman-bitch.ogg",'+
+                  '"time":"10"'+
+                '}'+
+'}}';
 
 $(function(){         
        $(".page").css({"width" : $(window).width()+"px", "height" : $(window).height()+"px"});
-       console.log($(window).width());
-       
-
+ var Dialog = $.parseJSON(dialog);
  //document.write($Date);
 
 //приобразуем в объект
@@ -138,12 +165,74 @@ $(".b_menu li").click(function(){
             $link.addClass("e_menu-active");
         
     });
+    
+    $(".say").click(function(){       
+       var input = $(this).parent("div").children(".chat-input");       
+       var name = input.attr("name");
+       var value = input.val();
+       var res = chat(name, value, Dialog);       
+       res = Dialog[name][res];
+       var time = res["time"];        
+       $(".cartman_chat-bable").html(res["answer"]);                          
+        var snd = document.getElementById(res["audio"]);       
+            snd.play();
+        animation("cartman", time, "mount", "../img/wtf2.png");
+    });
 
 
 }); 
 
 // библиотека функций.
 
+
+//анимация разговора;
+ var animation = function(char, time, className, pic){
+     
+      var i = 0;
+      var b = time;
+      var img = new Image();
+          img.src = pic;
+      
+    // $(".mount").css({"width": "301x", "height":"40px"});
+      var mount = $(".mount")[0].getContext('2d');
+     // mount.drawImage(img, -1, 0, 1150, 150);
+      
+      var coords = new Array( -1, -270, -570, -850,
+                               -1, -270, -570, -850,
+                               -1, -270, -570, -850,
+                               -1, -270, -570, -850,
+                               -1, -270, -570, -850,
+                               -1, -270, -570, -850,
+                               -1, -270, -570, -850,
+                               -1, -270, -570, -850,
+                               -1, -270, -570, -850,
+                               -1, -270, -570, -850,
+                               -1, -270, -570, -850,
+                               -1, -270, -570, -850,
+                               -1, -270, -570, -850
+                              );
+                                 
+      function speak(i, mount){            
+            
+            mount.clearRect(0, 0, 500, 500); 
+            mount.drawImage(img, coords[i], 0, 1150, 150);           
+             console.log(img);
+          if(i<b){
+             
+                i=i+1;                    
+            setTimeout(
+                function(){                    
+                    speak(i, mount);
+                }, 100
+            );
+           }else{  
+               mount.clearRect(0, 0, 500, 500); 
+                return true;          
+           }
+           
+        }
+        speak(0, mount);
+  };
 
 // прорисовка активных элементов персонажей
 var parts = function(data){
@@ -186,9 +275,8 @@ var sizeUpdate = function(firstTime, date, wK, hK){
 
 // проприсовка статических объектов на сранице и добавление некоторых стилей
  var compile = function (myDate){
-   $.each(myDate.elements, function(i, val){
-       console.log(this.pageName);
-       $("#"+this.pageName).append("<div class='"+this.name+" "+this.className+"' style='width:"+this.width_+"px; height: "+this.height_+"px; "+this.style+"'>"+this.name+"</div>");          
+   $.each(myDate.elements, function(i, val){       
+       $("#"+this.pageName).append("<div class='"+this.name+" "+this.className+"' style='width:"+this.width_+"px; height: "+this.height_+"px; "+this.style+"'></div>");          
     });   
  }
 
@@ -223,31 +311,7 @@ var sizeUpdate = function(firstTime, date, wK, hK){
    sizeUpdate(0, myDate, widthK, heightK);      
    
 }
-$(".send").click(function(){
-                   var $text =  $(this).prev('input');
-                   var $answer = $(this).parent("div.ask").prev("div.answer").children(".e_speacBable-chat");    
 
-                   $.getJSON('answ.php',"ask="+$text.val(), function(data){ 
-                           var dateTime =  new Date();                           
-                        if (data){                        
-
-                            var $Content =  dateTime.getHours() +":"+dateTime.getMinutes()+" />" + data.answer +"<br />";
-                            $answer.prepend( $Content );  
-                            $text.val("");
-
-                            var $sound = document.getElementById("audio");                   
-                            $sound.play();
-
-
-                          }else {
-
-                             var $Content =  dateTime.getHours() +":"+dateTime.getMinutes()+" /> GO AWEY!<br />";
-                             $answer.prepend( $Content );  
-                             $text.val("");
-                          }
-                      });
-                      return false;
-                    });
 
 
 
@@ -279,7 +343,14 @@ var carman_sperk = function(){
 }
 
 //чат 
-    var chat = function( who, text){
+    var chat = function(who, text, dialogs){
+       var re="default";
+        $.each(dialogs[who], function(key, value){
+            if (!(text.search(this["pattern"]))){               
+              re = this["name"];                
+            }
+        });
+        return re; 
         
     } 
 

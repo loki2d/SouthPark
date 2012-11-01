@@ -86,6 +86,72 @@ html {
     background: url(../img/H2.jpg) 0px 0px no-repeat;
 }
 
+
+.cartman_chat-bable {
+    position:absolute;
+    height: 100px;
+    width: 200px;
+    background: #fff;
+    left: 30%;
+    top: 10%;
+} 
+/*Старница Стена*/
+
+#chatStan {
+    width:100%;
+    height: 100%;
+    float: left;    
+    background: url(../img/H3.jpg) 0px 0px no-repeat;
+}
+
+
+.stan_chat-bable {
+    position:absolute;
+    height: 100px;
+    width: 200px;
+    background: #fff;
+    left: 30%;
+    top: 10%;
+} 
+
+/*Старница Каила*/
+    #chatKail {
+    width:100%;
+    height: 100%;
+    float: left;    
+    background: url(../img/H4.jpg) 0px 0px no-repeat;
+}
+
+
+.kail_chat-bable {
+    position:absolute;
+    height: 100px;
+    width: 200px;
+    background: #fff;
+    left: 30%;
+    top: 10%;
+} 
+/*Старница Кенни*/
+
+#chatKenny {
+    width:100%;
+    height: 100%;
+    float: left;    
+    background: url(../img/H5.jpg) 0px 0px no-repeat;
+}
+
+
+.kail_chat-bable {
+    position:absolute;
+    height: 100px;
+    width: 200px;
+    background: #fff;
+    left: 30%;
+    top: 10%;
+} 
+
+
+/*chat*/
 .chat {
     height: 94px;
     width: 686px;
@@ -136,6 +202,3 @@ html {
     right: 57px;
     top: -21px;
 }
-/*Старница Стена*/
-/*Старница Каила*/
-/*Старница Кенни*/
