@@ -7,11 +7,13 @@
 */
 
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    min-width: 1024px;
+   width: 100%;
+   height: 100%;
+   margin: 0px;
+   padding: 0px;
+   min-width: 600px;
+   font-family: 'Kite One', sans-serif;
+  
 } 
 
 html {
@@ -57,6 +59,7 @@ html {
     left: 30px;
     width: 800px;
     z-index: 100;
+     font-family: 'Bad Script', cursive;
 }
 .e_menu {
     display: inline-block;
@@ -89,11 +92,13 @@ html {
 
 .cartman_chat-bable {
     position:absolute;
-    height: 100px;
-    width: 200px;
-    background: #fff;
+    height: 101px;
+    width: 687px;
+    padding: 70px 20px;
+    background: url("../img/bubble.png") no-repeat;
     left: 30%;
-    top: 10%;
+    bottom: 40%;
+    text-align: center;
 } 
 /*Старница Стена*/
 
@@ -137,7 +142,7 @@ html {
     width:100%;
     height: 100%;
     float: left;    
-    background: url(../img/H5.jpg) 0px 0px no-repeat;
+    background: url('../img/H5.jpg') 0px 0px no-repeat;
 }
 
 

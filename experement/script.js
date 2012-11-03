@@ -56,9 +56,10 @@ var $Date =  '{'+
                      '"name":"Cartamn",'+
                      '"pageName":"chatCartman",'+ 
                      '"className":"homeCartman",'+ // он же радитель для частички
-                     '"width_":"40",'+
-                     '"height_":"43",'+
-                     '"style":"bottom: -30px; left: 10%; position: absolute; background: url(../img/cartman.png) no-repeat; background-size: contain;"'+                     
+                     '"fix":"1",'+
+                     '"width_":"340",'+
+                     '"height_":"343",'+
+                     '"style":"bottom: -60px; left: 10%; position: absolute; background: url(../img/cartman.png) no-repeat; background-size: contain;"'+                     
 		'},'+
                 '"bable":{'+
                      '"name":"carmanBable",'+
@@ -74,10 +75,12 @@ var $Date =  '{'+
             '"CartmanMount":{'+        
                             '"name":"mount",'+
                             '"parent":"homeCartman",'+                            
-                            '"css":"height: 14%; width: 9%; top: 48%; left: 31%; margin-left: -6%; position: absolute;",'+
+                            '"css":"height: 40px; width: 50px; top: 47%; left: 50%; margin-left: -6%; position: absolute;",'+
                             '"className":"cartmanMount",'+
                             '"tagName":"canvas",'+
-                            '"function":"CartmanSpeak"'+            
+                            '"function":"CartmanSpeak",'+
+                            '"sprite":"../img/wtf2.png",'+
+                            '"pictDefault":"../img/wtf.png"'+
             '}'+
         '}'+
 '}';
@@ -86,31 +89,40 @@ var $Date =  '{'+
 var Dialog = "";
 
 var dialog = ' {"cartman": {'+
-                '"hi" : {'+
-                    '"name" : "hi",'+
-                    '"pattern" : "hi",'+
-                    '"answer": "Hello!",'+
-                    '"audio" : "cartman-no",'+
-                    '"url":"../audio/no.mp3",'+
-                    '"time":"3"'+
-                 '},'+
-                '"default" : {'+
-                    '"name":"what",'+
-                    '"pattern": "default",'+
-                    '"answer": "What?",'+
-                    '"audio": "cartman-what",'+
-                    '"url":"../audio/carman-what.ogg",'+
-                    '"time":"10"'+
-                    
-                  '},'+
-                '"bitch" : {'+
-                  '"name":"bitch",'+
-                  '"pattern": "[Bb][Ii][Tt][Cc][Hh]",'+
-                  '"answer": "Bitch! Don\'t coll me bitch, bitch!",'+
-                  '"audio": "cartman-bitch",'+
-                  '"url":"../audio/carman-bitch.ogg",'+
-                  '"time":"10"'+
-                '}'+
+                    '"hi" : {'+
+                        '"name" : "hi",'+
+                        '"pattern" : "hi",'+
+                        '"answer" : "Hello!",'+
+                        '"audio" : "cartman-no",'+
+                        '"url":"../audio/no.mp3",'+
+                        '"time" : "3",'+
+                        '"animationParts": {'+
+                            '"0" : "CartmanMount"'+
+                        '}'+
+                     '},'+
+                    '"default" : {'+
+                        '"name":"what",'+
+                        '"pattern": "default",'+
+                        '"answer": "What?",'+
+                        '"audio": "cartman-what",'+
+                        '"url":"../audio/carman-what.ogg",'+
+                        '"time":"110",'+
+                         '"animationParts": {'+
+                            '"0" : "CartmanMount"'+
+                        '}'+
+
+                      '},'+
+                    '"bitch" : {'+
+                      '"name":"bitch",'+
+                      '"pattern": "[Bb][Ii][Tt][Cc][Hh]",'+
+                      '"answer": "Bitch! Don\'t coll me bitch, bitch!",'+
+                      '"audio": "cartman-bitch",'+
+                      '"url":"../audio/carman-bitch.ogg",'+
+                      '"time":"10",'+
+                       '"animationParts": {'+
+                            '"0" : "CartmanMount"'+
+                        '}'+
+                    '}'+
 '}}';
 
 $(function(){         
@@ -147,13 +159,11 @@ $(".b_menu li").click(function(){
         var linkName = $(this).attr("goto");
         var $menu = $(".b_menu");
             $menu.removeClass("home cartman kenny stan kail");
-            $menu.addClass(linkName);
-            //console.log(linkName);
+            $menu.addClass(linkName);           
         
         var page = $("#"+linkName);
             
-            var positionEl = page.offset();
-            //console.log(positionEl);
+            var positionEl = page.offset();           
             if( positionEl.left != 0)
             {
                 var margin = $(".i_wBlock").css("margin-left");
@@ -166,78 +176,75 @@ $(".b_menu li").click(function(){
         
     });
     
-    $(".say").click(function(){       
-       var input = $(this).parent("div").children(".chat-input");       
-       var name = input.attr("name");
-       var value = input.val();
-       var res = chat(name, value, Dialog);       
+ $(".say").click(function(){       
+   var input = $(this).parent("div").children(".chat-input");       
+   var name = input.attr("name");
+   var value = input.val();
+   var res = chat(name, value, Dialog);       
        res = Dialog[name][res];
-       var time = res["time"];        
-       $(".cartman_chat-bable").html(res["answer"]);                          
-        var snd = document.getElementById(res["audio"]);       
-            snd.play();
-        animation("cartman", time, "mount", "../img/wtf2.png");
-    });
+   var time = res["time"];  
+   var animationPart = myDate["parts"][res.animationParts[0]]
+   $(".cartman_chat-bable").html(res["answer"]);                          
+    var snd = document.getElementById(res["audio"]);       
+        snd.play();
+   
+   animation("cartman", time, animationPart); // должны получить имя класса где лежит рот
+});
 
 
 }); 
 
-// библиотека функций.
+//-----------------------===================-----------------------------
+// ======================================================================
+// ----------------------------------------------------------------------
+
+// LIBRARY
 
 
 //анимация разговора;
- var animation = function(char, time, className, pic){
-     
+ var animation = function(charName, time, animationPartObj){
+      var className = animationPartObj.className;
       var i = 0;
       var b = time;
       var img = new Image();
-          img.src = pic;
-      
-    // $(".mount").css({"width": "301x", "height":"40px"});
-      var mount = $(".mount")[0].getContext('2d');
-     // mount.drawImage(img, -1, 0, 1150, 150);
-      
-      var coords = new Array( -1, -270, -570, -850,
-                               -1, -270, -570, -850,
-                               -1, -270, -570, -850,
-                               -1, -270, -570, -850,
-                               -1, -270, -570, -850,
-                               -1, -270, -570, -850,
-                               -1, -270, -570, -850,
-                               -1, -270, -570, -850,
-                               -1, -270, -570, -850,
-                               -1, -270, -570, -850,
-                               -1, -270, -570, -850,
-                               -1, -270, -570, -850,
-                               -1, -270, -570, -850
-                              );
+          img.src = animationPartObj.sprite;
+      var imgDef = new Image();
+          imgDef.src = animationPartObj.pictDefault;
+      var mount = $("."+className)[0].getContext('2d');     
+      var coords = new Array( -1, -270, -570, -850);
                                  
-      function speak(i, mount){            
-            
-            mount.clearRect(0, 0, 500, 500); 
-            mount.drawImage(img, coords[i], 0, 1150, 150);           
-             console.log(img);
-          if(i<b){
-             
-                i=i+1;                    
-            setTimeout(
+      function speak(i, mount){
+          mount.clearRect(0, 0, 500, 300);           
+          mount.drawImage(img, coords[Math.round(Math.random() * coords.length)], 0, 1150, 100); 
+         
+          if(i<b){             
+                i=i+1;
+          setTimeout(
                 function(){                    
                     speak(i, mount);
                 }, 100
-            );
+            );           
            }else{  
                mount.clearRect(0, 0, 500, 500); 
-                return true;          
-           }
-           
-        }
+               mount.drawImage(imgDef, 0, 0, 340, 105);                     
+           }           
+        } //  function speak
         speak(0, mount);
-  };
+  
+}; //animation
 
 // прорисовка активных элементов персонажей
 var parts = function(data){
-   $.each(data.parts, function(){
-       $("."+this.parent).append("<"+this.tagName+" class="+this.name+" style='"+this.css+"'></"+this.tagName+">");
+
+$.each(data.parts, function(){
+       $("."+this.parent).append("<"+this.tagName+" class="+this.className+" style='"+this.css+"'></"+this.tagName+">");
+       if (this.tagName == "canvas"){
+            var img = new Image();                                  // добавляем дефолтную картинку. 
+            img.src = this.pictDefault;
+            mount = $("."+this.className)[0].getContext('2d');
+            mount.clearRect(0, 0, 500, 500); 
+            mount.drawImage(img, 0, 0, 340, 105); 
+       }
    });
 }
 
@@ -245,11 +252,15 @@ var parts = function(data){
 var sizeUpdate = function(firstTime, date, wK, hK){     
     if (firstTime){
        $.each(date.elements, function(index, el){
+           if (this.fix != 1){
            if ( this.width_ != 0 && this.height_ != 0){
                this.q =  this.height_ / this.width_ ;   // получаем коэфициент 
             this.width_ = (this.width_ * date.client.widthOld)/100; // переводим в пиксили
             this.height_ = (this.height_ * date.client.heightOld)/100; // переводим в пиксили
                       
+            }else {
+                this.q = this.height_ / this.width_;
+            }
            }
         });
     }else {
@@ -280,20 +291,7 @@ var sizeUpdate = function(firstTime, date, wK, hK){
     });   
  }
 
-// фунция для перересовки стилей и элементов на странице (Устарела)
- function ReStyle(myDate){
-       
-    var $style="";
-    $.each(myDate.page.elements, function(i, val){       
-        $style= $style+"."+i+"{position: absolute; ";
-        $.each(myDate.page.elements[i], function(i, val){
-            $style = $style + i+":"+val+"; "
-        });
-        $style = $style + "} \r\n ";
-       });
-   $('head style[name="dinamic"]').text($style);    
-     
- }
+
  // функция реагирующая на изменения экрана.
  
  function Resize(myDate){ 
@@ -311,10 +309,6 @@ var sizeUpdate = function(firstTime, date, wK, hK){
    sizeUpdate(0, myDate, widthK, heightK);      
    
 }
-
-
-
-
 
 function ResizePage(){ 
    var width = $(window).width();
@@ -334,15 +328,15 @@ function ResizePage(){
 
 
 
-var carman_sperk = function(){
-         
-      //$(".b_speak-bable-cartman").css({"display": "block"});
+var carman_sperk = function(){         
       var snd = document.getElementsByTagName("audio")[0];       
       snd.play();   
-       // song();  
+       
 }
+//------------------------------
+//----------------------CHAT----
+//------------------------------
 
-//чат 
     var chat = function(who, text, dialogs){
        var re="default";
         $.each(dialogs[who], function(key, value){
