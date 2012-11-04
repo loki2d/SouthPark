@@ -6,51 +6,45 @@ var $Date =  '{'+
             '"heightNew":"'+$(window).height()+'",'+
             '"widthK":"1",'+
             '"heightK":"1"'+
-        '},'+
-	/*'"page": {'+
-		'"background":"../img/H1.JPG",'+
-		'"name":"home",'+
-		'"elements": {'+
-			'"cartman":{"top":"60%","left":"15%", "z-index":"100", "background":"url(../img/cartman.png) no-repeat", "background-size":"contain"},'+
-			'"kail":{"top":"60%","left":"35%", "z-index":"100", "background":"url(../img/stan.png) no-repeat", "background-size":"contain"},'+
-			'"stan":{"top":"60%","left":"52%", "z-index":"100", "background":"url(../img/kail.png) no-repeat", "background-size":"contain"},'+
-			'"kanny":{"top":"60%","left":"65%", "z-index":"100", "background":"url(../img/kenny.png) no-repeat", "background-size":"contain"}'+		
-		'}'+
-	'},'+*/
+        '},'+	
 	'"elements":{'+
                '"cartman":{'+
                      '"name":"cartman",'+
                      '"pageName":"home",'+
                      '"className":"cartman",'+
-                     '"width_":"10",'+
-                     '"height_":"23",'+
-                     '"style":"top: 70%; left: 35%; z-index: 100;  position: absolute; background: url(../img/cartman.png) no-repeat; background-size: contain;"'+
+                     '"width_":"180",'+
+                     '"height_":"164",'+
+                     '"fix":"1",'+
+                     '"style":"bottom: 15%; left: 23%; z-index: 170;  position: absolute; background: url(../img/cartman.png) no-repeat; background-size: contain; "'+
 		'},'+
 		'"kail": {'+
                     '"name":"kail",'+
                     '"pageName":"home",'+
                     '"className":"kail",'+
-                    '"width_":"8",'+
-                    '"height_":"27",'+
-                    '"style":"top: 68%; left: 48%; z-index: 100;  position: absolute; background: url(../img/kail.png) no-repeat; background-size: contain;"'+
+                    '"width_":"147",'+
+                    '"height_":"180",'+
+                    '"fix":"1",'+
+                    '"style":"bottom: 15%; left: 43%; z-index: 100;  position: absolute; background: url(../img/kail.png) no-repeat; background-size: contain; "'+
 			
 		'},'+
 		'"stan": {'+
                     '"name":"stan",'+
                     '"pageName":"home",'+
                     '"className":"stan",'+
-                    '"width_":"7",'+
-                    '"height_":"24",'+
-                    '"style":"top: 68%; left: 57%; z-index: 100;  position: absolute; background: url(../img/stan.png) no-repeat; background-size: contain;"'+
+                    '"width_":"130",'+
+                    '"height_":"190",'+
+                    '"fix":"1",'+
+                    '"style":"bottom: 15%; left: 60%; z-index: 180;  position: absolute; background: url(../img/stan.png) no-repeat; background-size: contain ; "'+
 			
 		'},'+
-		'"kanny": {'+
-                      '"name":"kanny",'+
+		'"kenny": {'+
+                      '"name":"kenny",'+
                       '"pageName":"home",'+
-                      '"className":"kanny",'+
-                      '"width_":"8",'+
-		        '"height_":"27",'+	
-                      '"style":"top: 67%; left: 67%; z-index: 100;  position: absolute; background: url(../img/kenny.png) no-repeat; background-size: contain;"'+
+                      '"className":"kenny",'+
+                      '"width_":"140",'+
+		        '"height_":"186",'+
+                      '"fix":"1",'+
+                      '"style":"bottom: 15%; left: 75%; z-index: 100;  position: absolute; background: url(../img/kenny.png) no-repeat; background-size: contain; "'+
 		'},'+
                 '"cartmanChat":{'+
                      '"name":"Cartamn",'+
@@ -80,8 +74,48 @@ var $Date =  '{'+
                             '"tagName":"canvas",'+
                             '"function":"CartmanSpeak",'+
                             '"sprite":"../img/wtf2.png",'+
-                            '"pictDefault":"../img/wtf.png"'+
-            '}'+
+                            '"pictDefault":"../img/cartman-rot.png"'+
+            '},'+
+            '"CartmanRotHome":{'+        
+                            '"name":"mount",'+
+                            '"parent":"cartman",'+                            
+                            '"css":"height: 20%; width: 20%; top: 48%; left: 46%; margin-left: -6%; position: absolute;",'+
+                            '"className":"CartmanRotHome",'+
+                            '"tagName":"canvas",'+
+                            '"function":"CartmanSpeak",'+
+                            '"sprite":"../img/wtf2.png",'+
+                            '"pictDefault":"../img/cartman-rot.png"'+
+            '},'+
+            '"SanRotHome":{'+        
+                            '"name":"mount",'+
+                            '"parent":"stan",'+                            
+                            '"css":"height: 17%; width: 20%; top: 55%; left: 48%; margin-left: -6%; position: absolute;",'+
+                            '"className":"SanRotHome",'+
+                            '"tagName":"canvas",'+
+                            '"function":"CartmanSpeak",'+
+                            '"sprite":"../img/wtf2.png",'+
+                            '"pictDefault":"../img/stan-rot.png"'+
+            '},'+
+            '"KailRotHome":{'+        
+                            '"name":"mount",'+
+                            '"parent":"kail",'+                            
+                            '"css":"height: 18%; width: 20%; top: 51%; left: 46%; margin-left: -6%; position: absolute;",'+
+                            '"className":"KailRotHome",'+
+                            '"tagName":"canvas",'+
+                            '"function":"CartmanSpeak",'+
+                            '"sprite":"../img/wtf2.png",'+
+                            '"pictDefault":"../img/kail-rot.png"'+
+            '},'+ 
+            '"KannyHeadHome":{'+        
+                            '"name":"KannyHead",'+
+                            '"parent":"kenny",'+                            
+                            '"css":"height: 77px; width: 86px; top: 35px; left: 25px; margin-left: 0; position: absolute; border: 1px solid green;",'+
+                            '"className":"KannyHead",'+
+                            '"tagName":"canvas",'+
+                            '"function":"CartmanSpeak",'+
+                            '"sprite":"../img/wtf2.png",'+
+                            '"pictDefault":"../img/kail-rot.png"'+
+            '}'+   
         '}'+
 '}';
 
@@ -125,9 +159,7 @@ var dialog = ' {"cartman": {'+
                     '}'+
 '}}';
 
-$(function(){         
- console.log ("background-size: "+ $(window).width()+"px "+$(window).height()+"px");
- //$(".page").css({"width" : $(window).width()+"px", "height" : $(window).height()+"px", "background-size": " "+$(window).width()+"px "+$(window).height()+"px "});
+$(function(){ 
  var Dialog = $.parseJSON(dialog);
  //document.write($Date);
 
@@ -203,7 +235,7 @@ $(".b_menu li").click(function(){
 
 
 //анимация разговора;
- var animation = function(charName, time, animationPartObj){
+ var animation = function(charName, time, animationPartObj){     
       var className = animationPartObj.className;
       var i = 0;
       var b = time;
@@ -239,12 +271,15 @@ var parts = function(data){
 
 $.each(data.parts, function(){
        $("."+this.parent).append("<"+this.tagName+" class="+this.className+" style='"+this.css+"'></"+this.tagName+">");
-       if (this.tagName == "canvas"){
-            var img = new Image();                                  // добавляем дефолтную картинку. 
-            img.src = this.pictDefault;
+       if (this.tagName == "canvas"){          
+           var img = new Image(); 
+           var mount;               
+            img.src = this.pictDefault;            
             mount = $("."+this.className)[0].getContext('2d');
             mount.clearRect(0, 0, 500, 500); 
-            mount.drawImage(img, 0, 0, 340, 105); 
+           if (mount.drawImage(img, 0, 0, 340, 105)){
+               cinsole.log("yes");
+           } 
        }
    });
 }
@@ -254,33 +289,31 @@ var sizeUpdate = function(firstTime, date, wK, hK){
     if (firstTime){
        $.each(date.elements, function(index, el){
            if (this.fix != 1){
-           if ( this.width_ != 0 && this.height_ != 0){
-               this.q =  this.height_ / this.width_ ;   // получаем коэфициент 
-            this.width_ = (this.width_ * date.client.widthOld)/100; // переводим в пиксили
-            this.height_ = (this.height_ * date.client.heightOld)/100; // переводим в пиксили
-                      
-            }else {
-                this.q = this.height_ / this.width_;
-            }
+                if ( this.width_ != 0 && this.height_ != 0){
+                    this.q =  this.height_ / this.width_ ;   // получаем коэфициент 
+                    this.width_ = (this.width_ * date.client.widthOld)/100; // переводим в пиксили
+                    this.height_ = (this.height_ * date.client.heightOld)/100; // переводим в пиксили
+                    this.q =  this.height_ / this.width_ ;   // получаем коэфициент 
+                 }else {
+                     this.q = this.height_ / this.width_;
+                 }                               
            }
         });
     }else {
         
-		$.each(date.elements, function(index, el){ 
+	$.each(date.elements, function(index, el){ 
 		
-			 if  ( wK != 1 && hK != 1 ){                             
-				this.width_ = this.width_  *  wK; // домножаем на изменение сторон
-				this.height_ = this.width_ * this.q; // ресайзим блок
-			}
-			else if(wK  != 1){
-				this.width_ = this.width_  *  wK // домножаем на изменение сторон
-				this.height_ = this.width_ * this.q // ресайзим блок
-            }
-			else if(hK  != 1){
-				this.height_ = this.height_ *  hK // домножаем на изменение сторон
-				this.width_ = this.height_  / this.q // ресайзим блок
-			} 
-            $("."+this.name).css({"width": this.width_, "height": this.height_});
+                if  ( wK != 1 && hK != 1 ){                            
+                       this.width_ = this.width_  *  wK; // домножаем на изменение сторон
+                       this.height_ = this.width_ * this.q; // ресайзим блок
+                }else if(wK  != 1){
+                       this.width_ = this.width_  *  wK // домножаем на изменение сторон
+                       this.height_ = this.width_ * this.q // ресайзим блок
+                }else if(hK  != 1){
+                        this.height_ = this.height_ *  hK // домножаем на изменение сторон
+                        this.width_ = this.height_  / this.q // ресайзим блок
+                } 
+                $("."+this.name).css({"width": this.width_, "height": this.height_});
         });
     }  
 };
