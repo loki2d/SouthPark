@@ -55,6 +55,33 @@ var $Date =  '{'+
                      '"height_":"343",'+
                      '"style":"bottom: -60px; left: 10%; position: absolute; background: url(../img/cartman.png) no-repeat; background-size: contain;"'+                     
 		'},'+
+                '"stanChat":{'+
+                     '"name":"Stan",'+
+                     '"pageName":"chatStan",'+ 
+                     '"className":"chatStan",'+ // он же радитель для частички
+                     '"fix":"1",'+
+                     '"width_":"340",'+
+                     '"height_":"343",'+
+                     '"style":"bottom: -30px; left: 10%; position: absolute; background: url(../img/Stan.png) no-repeat; background-size: contain;"'+                     
+		'},'+
+                '"kailChat":{'+
+                     '"name":"Kail",'+
+                     '"pageName":"chatKail",'+ 
+                     '"className":"chatKail",'+ // он же радитель для частички
+                     '"fix":"1",'+
+                     '"width_":"340",'+
+                     '"height_":"343",'+
+                     '"style":"bottom: -40px; left: 10%; position: absolute; background: url(../img/kail.png) no-repeat; background-size: contain;"'+                     
+		'},'+
+                '"kennyChat":{'+
+                     '"name":"Kenny",'+
+                     '"pageName":"chatKenny",'+ 
+                     '"className":"chatKenny",'+ // он же радитель для частички
+                     '"fix":"1",'+
+                     '"width_":"340",'+
+                     '"height_":"343",'+
+                     '"style":"bottom: -30px; left: 10%; position: absolute; background: url(../img/kenny.png) no-repeat; background-size: contain;"'+                     
+		'},'+
                 '"bable":{'+
                      '"name":"carmanBable",'+
                      '"pageName":"carmanBable",'+
@@ -65,6 +92,7 @@ var $Date =  '{'+
 		'}'+
 
 	'},'+
+        
         '"parts":{'+
             '"CartmanMount":{'+        
                             '"name":"mount",'+
@@ -86,13 +114,13 @@ var $Date =  '{'+
                             '"sprite":"../img/wtf2.png",'+
                             '"pictDefault":"../img/cartman-rot.png"'+
             '},'+
-            '"SanRotHome":{'+        
+            '"StanRotHome":{'+        
                             '"name":"mount",'+
                             '"parent":"stan",'+                            
-                            '"css":"height: 17%; width: 20%; top: 55%; left: 48%; margin-left: -6%; position: absolute;",'+
+                            '"css":"height: 17%; width: 20%; top: 57%; left: 48%; margin-left: -6%; position: absolute;",'+
                             '"className":"SanRotHome",'+
                             '"tagName":"canvas",'+
-                            '"function":"CartmanSpeak",'+
+                            '"function":"StanSpeak",'+
                             '"sprite":"../img/wtf2.png",'+
                             '"pictDefault":"../img/stan-rot.png"'+
             '},'+
@@ -112,17 +140,41 @@ var $Date =  '{'+
                             '"css":"height: 77px; width: 86px; top: 35px; left: 25px; margin-left: 0; position: absolute; border: 1px solid green;",'+
                             '"className":"KannyHead",'+
                             '"tagName":"canvas",'+
-                            '"function":"CartmanSpeak",'+
+                            '"function":"KanyMad",'+
+                            '"sprite":"../img/kenny-head.png",'+
+                            '"pictDefault":"../img/kany-head-d.png",'+
+                            '"volume": "0"'+                            
+            '},'+
+            '"StanChatRotAnimation":{'+        
+                            '"name":"StanChatAnimationRot",'+
+                            '"parent":"chatStan",'+                            
+                            '"css":"height: 30px; width: 40px; top: 60%; left: 30%; margin-left: 0; position: absolute;",'+
+                            '"className":"StanRot",'+
+                            '"tagName":"canvas",'+
+                            '"function":"StanChatAnimationRot",'+
                             '"sprite":"../img/wtf2.png",'+
-                            '"pictDefault":"../img/kail-rot.png"'+
-            '}'+   
+                            '"pictDefault":"../img/stan-rot.png",'+
+                            '"volume": "0"'+                            
+            '},'+
+            '"KailChatRotAnimation":{'+        
+                            '"name":"KailChatAnimationRot",'+
+                            '"parent":"chatKail",'+                            
+                            '"css":"height: 30px; width: 40px; top: 57%; left: 34%; margin-left: 0; position: absolute;",'+
+                            '"className":"KailRot",'+
+                            '"tagName":"canvas",'+
+                            '"function":"KailChatAnimationRot",'+
+                            '"sprite":"../img/wtf2.png",'+
+                            '"pictDefault":"../img/stan-rot.png",'+
+                            '"volume": "0"'+                            
+            '}'+
+            
         '}'+
 '}';
 
 
 var Dialog = "";
 
-var dialog = ' {"cartman": {'+
+var dialog = '{"cartman": {'+
                     '"hi" : {'+
                         '"name" : "hi",'+
                         '"pattern" : "hi",'+
@@ -148,7 +200,7 @@ var dialog = ' {"cartman": {'+
                       '},'+
                     '"bitch" : {'+
                       '"name":"whie",'+
-                      '"pattern": "whie, you sou ass hole?",'+
+                      '"pattern": "bitch",'+
                       '"answer": "Bitch! Don\'t coll me bitch, bitch!",'+
                       '"audio": "cartman-what",'+
                       '"url":"../audio/carman-bitch.ogg",'+
@@ -156,15 +208,42 @@ var dialog = ' {"cartman": {'+
                        '"animationParts": {'+
                             '"0" : "CartmanMount"'+
                         '}'+
-                    '}'+
-'}}';
+                     '}'+
+             '},'+        
+             '"stan": {'+
+                   '"default": {'+
+                        '"name" : "default",'+
+                        '"pattern" : "default",'+
+                        '"answer": "Ok, lets talk about something else!",'+
+                        '"audio" : "cartman-hi",'+
+                        '"url" : "../audio/cartman-hi.mp3",'+                     
+                        '"time" : "10",'+
+                        '"animationParts" : {'+
+                                '"0":"StanChatRotAnimation"'+
+                            '}'+
+                     '}'+
+            '},'+
+             '"kail": {'+
+                   '"default": {'+
+                        '"name" : "default",'+
+                        '"pattern" : "default",'+
+                        '"answer": "Ok, lets talk about something else!",'+
+                        '"audio" : "cartman-hi",'+
+                        '"url" : "../audio/cartman-hi.mp3",'+                     
+                        '"time" : "10",'+
+                        '"animationParts" : {'+
+                                '"0":"StanChatRotAnimation"'+
+                            '}'+
+                     '}'+
+            '}'+
+'}';
 
 
-$(function(){         
+$(function(){
+    
  $(".page").css({"width" : $(window).width()+"px", "height" : $(window).height()+"px"});
-
+  //document.write(dialog)
  var Dialog = $.parseJSON(dialog);
- //document.write($Date);
 
 //приобразуем в объект
 var myDate  = $.parseJSON($Date); 
@@ -212,19 +291,23 @@ $(".b_menu li").click(function(){
     });
  
  $(".say").click(function(){     
-  
+   
    var input = $(this).parent("div").children(".chat-input");       
    var name = input.attr("name");
+   var page = input.parent("div").parent("div").parent("div");
    var value = input.val();
-   var res = chat(name, value, Dialog);       
-       res = Dialog[name][res];
-   var time = res["time"];  
-   var animationPart = myDate["parts"][res.animationParts[0]];
-   $(".cartman_chat-bable").html(res["answer"]);                          
-    var snd = document.getElementById(res["audio"]);       
-        snd.play();
    
-   animation("cartman", time, animationPart); // должны получить имя класса где лежит рот
+   var res = chat(name, value, Dialog);
+  
+       res = Dialog[name][res];
+   var time = res["time"];
+   console.log(myDate["parts"][res.animationParts[0]]);
+   var animationPart = myDate["parts"][res.animationParts[0]];
+   $("."+name+"_chat-bable").html(res["answer"]);  
+   console.log(res["audio"]);
+   var snd = document.getElementById(res["audio"]);       
+        snd.play();
+   animation(time, animationPart);
 });
 
 $(".chat-input").keypress(function(event){
@@ -245,7 +328,7 @@ $(".chat-input").keypress(function(event){
 
 
 //анимация разговора;
- var animation = function(charName, time, animationPartObj){     
+ var animation = function(time, animationPartObj){     
       var className = animationPartObj.className;
       var i = 0;
       var b = time;
@@ -256,7 +339,7 @@ $(".chat-input").keypress(function(event){
       var mount = $("."+className)[0].getContext('2d');     
       var coords = new Array( -1, -270, -570, -850);
                                  
-      function speak(i, mount){
+ function speak(i, mount){
           mount.clearRect(0, 0, 500, 300);           
           mount.drawImage(img, coords[Math.round(Math.random() * coords.length)], 0, 1150, 100); 
          
@@ -277,6 +360,15 @@ $(".chat-input").keypress(function(event){
 }; //animation
 
 
+// проприсовка статических объектов на сранице и добавление некоторых стилей
+
+ var compile = function (myDate){
+   $.each(myDate.elements, function(i, val){
+       $("#"+this.pageName).append("<div class='"+this.name+" "+this.className+"' style='width:"+this.width_+"px; height: "+this.height_+"px; "+this.style+"'></div>");
+       
+    });   
+ };
+
 // прорисовка активных элементов персонажей
 var parts = function(data){
 
@@ -288,9 +380,9 @@ $.each(data.parts, function(){
             img.src = this.pictDefault;            
             mount = $("."+this.className)[0].getContext('2d');
             mount.clearRect(0, 0, 500, 500); 
-           if (mount.drawImage(img, 0, 0, 340, 105)){
-               cinsole.log("yes");
-           } 
+            mount.drawImage(img, 0, 0, 340, 105)
+               
+          
        }
    });
 }; // прорисовка элементов
@@ -318,27 +410,19 @@ var sizeUpdate = function(firstTime, date, wK, hK){
                     this.width_ = this.width_  *  wK; // домножаем на изменение сторон
                     this.height_ = this.width_ * this.q; // ресайзим блок
            }
-           else if(wK  != 1){
-                    this.width_ = this.width_  *  wK // домножаем на изменение сторон
-                    this.height_ = this.width_ * this.q // ресайзим блок
+           else if(wK != 1){
+                    this.width_ = this.width_  *  wK; // домножаем на изменение сторон
+                    this.height_ = this.width_ * this.q; // ресайзим блок
            }
            else if(hK  != 1){
-                    this.height_ = this.height_ *  hK // домножаем на изменение сторон
-                    this.width_ = this.height_  / this.q // ресайзим блок
+                    this.height_ = this.height_ *  hK; // домножаем на изменение сторон
+                    this.width_ = this.height_  / this.q; // ресайзим блок
            } 
        $("."+this.name).css({"width": this.width_, "height": this.height_});
 
         });
     }  
 };
-
-// проприсовка статических объектов на сранице и добавление некоторых стилей
-
- var compile = function (myDate){
-   $.each(myDate.elements, function(i, val){       
-       $("#"+this.pageName).append("<div class='"+this.name+" "+this.className+"' style='width:"+this.width_+"px; height: "+this.height_+"px; "+this.style+"'></div>");
-    });   
- }
 
 
  // функция реагирующая на изменения экрана.
@@ -349,7 +433,7 @@ var sizeUpdate = function(firstTime, date, wK, hK){
     
     var width = $(window).width(); // получаем размер окошка 
     var height =  $(window).height(); // получаем размер окошка 
-    var widthK =  width / OldW ;
+    var widthK =  width / OldW;
     var heightK = height / OldH;    
         myDate.client.widthK = widthK;
         myDate.client.heightK = heightK;
@@ -388,13 +472,14 @@ var carman_sperk = function(){
 //----------------------CHAT----
 //------------------------------
 
-    var chat = function(who, text, dialogs){
-       var re="default";
-        $.each(dialogs[who], function(key, value){
-            if (!(text.search(this.pattern))){               
+    var chat = function(who, text, dialogs){       
+        var re="default";       
+        $.each(dialogs[who], function(key, value){              
+            if (!(text.search(this.pattern))){             
               re = this["name"];                
             }
         });
+         console.log(re);
         return re; 
         
     };
@@ -402,7 +487,7 @@ var carman_sperk = function(){
 var helpSay = function(obj, text, dialogs){
     var q = new  RegExp("(^whie)*(how)* ", "gi");
     var variants = new Array();
-        if(!(text.search(q)) && text){            
+        if(!(text.search(q)) && text){
             
             $.each(dialogs[obj], function(kay, value){               
              var p = this.pattern;
@@ -412,6 +497,7 @@ var helpSay = function(obj, text, dialogs){
                     variants.push(this);  
                 }
             });
+            
          }
      // добавляем элементы подсказок.
     if (variants.length){

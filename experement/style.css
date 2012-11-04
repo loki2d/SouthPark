@@ -59,7 +59,7 @@ html {
     left: 30px;
     width: 800px;
     z-index: 100;
-     font-family: 'Bad Script', cursive;
+    font-family: 'Bad Script', cursive;
 }
 .e_menu {
     display: inline-block;
@@ -216,3 +216,14 @@ html {
     right: 57px;
     top: -21px;
 }
+
+.bable {
+    position:absolute;
+    height: 101px;
+    width: 687px;
+    padding: 70px 20px;
+    background: url("../img/bubble.png") no-repeat;
+    left: 30%;
+    bottom: 40%;
+    text-align: center;
+} 
