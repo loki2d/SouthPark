@@ -89,6 +89,15 @@ html {
     background: url(../img/H2.jpg) 0px 0px no-repeat;
 }
 
+.help {
+    position: fixed; 
+    top: 0px; 
+    right: 0px; 
+    height: 50px; 
+    width: 400px; 
+    background: #fff ;
+}
+
 
 .cartman_chat-bable {
     position:absolute;
