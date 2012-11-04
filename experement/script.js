@@ -164,7 +164,7 @@ var $Date =  '{'+
                             '"tagName":"canvas",'+
                             '"function":"KailChatAnimationRot",'+
                             '"sprite":"../img/wtf2.png",'+
-                            '"pictDefault":"../img/stan-rot.png",'+
+                            '"pictDefault":"../img/kail-rot.png",'+
                             '"volume": "0"'+                            
             '}'+
             
@@ -215,8 +215,8 @@ var dialog = '{"cartman": {'+
                         '"name" : "default",'+
                         '"pattern" : "default",'+
                         '"answer": "Ok, lets talk about something else!",'+
-                        '"audio" : "cartman-hi",'+
-                        '"url" : "../audio/cartman-hi.mp3",'+                     
+                        '"audio" : "cartman-no",'+
+                        '"url" : "../audio/cartman-no.mp3",'+                     
                         '"time" : "10",'+
                         '"animationParts" : {'+
                                 '"0":"StanChatRotAnimation"'+
@@ -228,11 +228,11 @@ var dialog = '{"cartman": {'+
                         '"name" : "default",'+
                         '"pattern" : "default",'+
                         '"answer": "Ok, lets talk about something else!",'+
-                        '"audio" : "cartman-hi",'+
-                        '"url" : "../audio/cartman-hi.mp3",'+                     
+                        '"audio" : "cartman-no",'+
+                        '"url" : "../audio/cartman-no.mp3",'+                     
                         '"time" : "10",'+
                         '"animationParts" : {'+
-                                '"0":"StanChatRotAnimation"'+
+                                '"0":"KailChatRotAnimation"'+
                             '}'+
                      '}'+
             '}'+
