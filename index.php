@@ -58,9 +58,7 @@
                        <div class="b_speak-bable-cartman">
                            hi, guys! This is the song, i just write! <br>
                            Is cole "i hate you, guy." !
-                           
-                          
-                           </div>
+                         </div>
                    </div>
                    <div class="b_char-Stan"></div>
                    <div class="b_char-Kail"></div>

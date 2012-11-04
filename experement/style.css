@@ -112,11 +112,11 @@ html {
 
 .stan_chat-bable {
     position:absolute;
-    height: 100px;
-    width: 200px;
+    height: 200px;
+    width: 400px;
     background: #fff;
     left: 30%;
-    top: 10%;
+    top: 30%;
 } 
 
 /*Старница Каила*/
