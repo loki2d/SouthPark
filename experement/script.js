@@ -7,7 +7,7 @@ var $Date =  '{'+
             '"widthK":"1",'+
             '"heightK":"1"'+
         '},'+
-	'"page": {'+
+	/*'"page": {'+
 		'"background":"../img/H1.JPG",'+
 		'"name":"home",'+
 		'"elements": {'+
@@ -16,7 +16,7 @@ var $Date =  '{'+
 			'"stan":{"top":"60%","left":"52%", "z-index":"100", "background":"url(../img/kail.png) no-repeat", "background-size":"contain"},'+
 			'"kanny":{"top":"60%","left":"65%", "z-index":"100", "background":"url(../img/kenny.png) no-repeat", "background-size":"contain"}'+		
 		'}'+
-	'},'+
+	'},'+*/
 	'"elements":{'+
                '"cartman":{'+
                      '"name":"cartman",'+
@@ -126,7 +126,8 @@ var dialog = ' {"cartman": {'+
 '}}';
 
 $(function(){         
-       $(".page").css({"width" : $(window).width()+"px", "height" : $(window).height()+"px"});
+ console.log ("background-size: "+ $(window).width()+"px "+$(window).height()+"px");
+ //$(".page").css({"width" : $(window).width()+"px", "height" : $(window).height()+"px", "background-size": " "+$(window).width()+"px "+$(window).height()+"px "});
  var Dialog = $.parseJSON(dialog);
  //document.write($Date);
 
@@ -321,7 +322,7 @@ function ResizePage(){
        $(this).css({
             "width": width,
             "height": height,
-            "background-size": "auto "+(height + 200)+"px"
+            "background-size": width+"px "+height+"px"
        });
    });   
 }
