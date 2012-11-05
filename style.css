@@ -84,9 +84,9 @@ html {
 .e_menu-stan:hover {background-position: -542px -31px;}
 .chatStan .e_menu-stan {background-position: -542px -70px;}
 
-.e_menu-kail {width: 65px; background-position: -428px 5px;}
-.e_menu-kail:hover {background-position: -428px -31px;}
-.chatKail .e_menu-kail {background-position: -428px -70px;}
+.e_menu-kyle {width: 65px; background-position: -428px 5px;}
+.e_menu-kyle:hover {background-position: -428px -31px;}
+.chatKyle .e_menu-kyle {background-position: -428px -70px;}
 
 .e_menu-kenny {width: 89px; background-position: -657px 5px;}
 .e_menu-kenny:hover {background-position: -657px -31px;}
@@ -150,15 +150,12 @@ html {
 
 .stan_chat-bable {
     position:absolute;
-    height: 200px;
-    width: 400px;
-    background: #fff;
-    left: 30%;
-    top: 30%;
+   
+    
 } 
 
 /*Старница Каила*/
-    #chatKail {
+    #chatKyle {
     width:100%;
     height: 100%;
     float: left;    
@@ -166,13 +163,9 @@ html {
 }
 
 
-.kail_chat-bable {
+.kyle_chat-bable {
     position:absolute;
-    height: 100px;
-    width: 200px;
-    background: #fff;
-    left: 30%;
-    top: 10%;
+   
 } 
 /*Старница Кенни*/
 
@@ -183,15 +176,6 @@ html {
     background: url('./img/H5.jpg') 0px 0px no-repeat;
 }
 
-
-.kail_chat-bable {
-    position:absolute;
-    height: 100px;
-    width: 200px;
-    background: #fff;
-    left: 30%;
-    top: 10%;
-} 
 
 
 /*chat*/
@@ -211,6 +195,7 @@ html {
     border: 3px solid #d5a83c;
     width: 490px;
     padding: 0px 100px 0px 10px;
+    font-size: 20px
 }
 
 .chat-heder{
@@ -247,12 +232,16 @@ html {
 }
 
 .bable {
-    position:absolute;
-    height: 101px;
-    width: 687px;
-    padding: 70px 20px;
-    background: url("./img/bubble.png") no-repeat;
-    left: 30%;
+    position:absolute;    
+    background: url("./img/bubble.png") no-repeat;   
     bottom: 40%;
+    height: 101px;
+    left: 35%;
+    padding: 30px 90px;
+    position: absolute;
     text-align: center;
+    width: 507px;
+    z-index: 101;
+    display: none;
+    font-size: 20px
 } 

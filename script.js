@@ -17,14 +17,14 @@ var $Date =  '{'+
                      '"fix":"1",'+
                      '"style":"bottom: 15%; left: 23%; z-index: 170;  position: absolute; background: url(./img/cartman.png) no-repeat; background-size: contain; "'+
 		'},'+
-		'"kail": {'+
-                    '"name":"kail",'+
+		'"kyle": {'+
+                    '"name":"kyle",'+
                     '"pageName":"home",'+
-                    '"className":"kail",'+
+                    '"className":"kyle",'+
                     '"width_":"147",'+
                     '"height_":"180",'+
                     '"fix":"1",'+
-                    '"style":"bottom: 15%; left: 43%; z-index: 100;  position: absolute; background: url(./img/kail.png) no-repeat; background-size: contain; "'+
+                    '"style":"bottom: 15%; left: 43%; z-index: 100;  position: absolute; background: url(./img/kyle.png) no-repeat; background-size: contain; "'+
 			
 		'},'+
 		'"stan": {'+
@@ -64,14 +64,14 @@ var $Date =  '{'+
                      '"height_":"343",'+
                      '"style":"bottom: -30px; left: 10%; position: absolute; background: url(./img/Stan.png) no-repeat; background-size: contain;"'+                     
 		'},'+
-                '"kailChat":{'+
-                     '"name":"Kail",'+
-                     '"pageName":"chatKail",'+ 
-                     '"className":"chatKail",'+ // он же радитель для частички
+                '"kyleChat":{'+
+                     '"name":"Kyle",'+
+                     '"pageName":"chatKyle",'+ 
+                     '"className":"chatKyle",'+ // он же радитель для частички
                      '"fix":"1",'+
                      '"width_":"340",'+
                      '"height_":"343",'+
-                     '"style":"bottom: -40px; left: 10%; position: absolute; background: url(./img/kail.png) no-repeat; background-size: contain;"'+                     
+                     '"style":"bottom: -40px; left: 10%; position: absolute; background: url(./img/kyle.png) no-repeat; background-size: contain;"'+                     
 		'},'+
                 '"kennyChat":{'+
                      '"name":"Kenny",'+
@@ -124,15 +124,15 @@ var $Date =  '{'+
                             '"sprite":"./img/wtf2.png",'+
                             '"pictDefault":"./img/stan-rot.png"'+
             '},'+
-            '"KailRotHome":{'+        
+            '"KyleRotHome":{'+        
                             '"name":"mount",'+
-                            '"parent":"kail",'+                            
+                            '"parent":"kyle",'+                            
                             '"css":"height: 18%; width: 20%; top: 51%; left: 46%; margin-left: -6%; position: absolute;",'+
-                            '"className":"KailRotHome",'+
+                            '"className":"KyleRotHome",'+
                             '"tagName":"canvas",'+
                             '"function":"CartmanSpeak",'+
                             '"sprite":"./img/wtf2.png",'+
-                            '"pictDefault":"./img/kail-rot.png"'+
+                            '"pictDefault":"./img/kyle-rot.png"'+
             '},'+ 
             '"KannyHeadHome":{'+        
                             '"name":"KannyHead",'+
@@ -156,15 +156,15 @@ var $Date =  '{'+
                             '"pictDefault":"./img/stan-rot.png",'+
                             '"volume": "0"'+                            
             '},'+
-            '"KailChatRotAnimation":{'+        
-                            '"name":"KailChatAnimationRot",'+
-                            '"parent":"chatKail",'+                            
+            '"KyleChatRotAnimation":{'+        
+                            '"name":"KyleChatAnimationRot",'+
+                            '"parent":"chatKyle",'+                            
                             '"css":"height: 30px; width: 40px; top: 57%; left: 34%; margin-left: 0; position: absolute;",'+
-                            '"className":"KailRot",'+
+                            '"className":"KyleRot",'+
                             '"tagName":"canvas",'+
-                            '"function":"KailChatAnimationRot",'+
+                            '"function":"KyleChatAnimationRot",'+
                             '"sprite":"./img/wtf2.png",'+
-                            '"pictDefault":"./img/kail-rot.png",'+
+                            '"pictDefault":"./img/kyle-rot.png",'+
                             '"volume": "0"'+                            
             '}'+
             
@@ -174,161 +174,1377 @@ var $Date =  '{'+
 
 var Dialog = "";
 
-var dialog = '{"cartman": {'+
-                    '"hi" : {'+
-                        '"name" : "hi",'+
-                        '"pattern" : {'+
-                                '"0" : "hi"'+
-                            '},'+
-                        '"answer" : "Hello!",'+
-                        '"audio" : "cartman-no",'+
-                        '"url":"../audio/no.mp3",'+
-                        '"time" : "3",'+
-                        '"animationParts": {'+
-                            '"0" : "CartmanMount"'+
-                        '}'+
-                     '},'+
-                    '"default" : {'+
-                        '"name":"what",'+
-                        '"pattern": {'+
-                                '"0" : "default"'+
-                            '},'+
-                        '"answer": "What?",'+
-                        '"audio": "cartman-what",'+
-                        '"url":"../audio/carman-what.ogg",'+
-                        '"time":"110",'+
-                         '"animationParts": {'+
-                            '"0" : "CartmanMount"'+
-                        '}'+
+var dialog = '{ "cartman": {'+			
+			'"KylesMom" : {'+
+				'"name" : "KylesMom",'+
+				'"pattern" : {'+
+                                        '"0" : "Kyle\'s Mom"'+
+                                '},'+
+				'"answer" : "Kyle\'s Mom... She\'s a big, fat, fuckin\' BIIIIIIIIITCH! Who\'s a fuckin\' bitch? Kyle\'s Mooooooooom! Yeah!",'+
+				'"audio": "0",'+
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"jew" : {'+
+				'"name" : "jew",'+
+				'"pattern" : {'+
+                                        '"0" : "jew"'+
+                                '},'+
+				'"answer" : "Speak about it with Kyle. He\'s jew!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"dad" : {'+
+				'"name" : "dad",'+
+				'"pattern" : {'+
+                                        '"0" : "dad"'+
+                                '},'+
+				'"answer" : "I don\'t have a dad. It\'s doesn\'t work.",'+
+				'"audio": {'+
+                                    '"0":{'+
+                                        '"id":"chatcartman_cartman_dad",'+
+                                        '"url":"путь к файлу ./audio/cartman/dad.mp3",'+
+                                        '"time":"20"'+
+                                        '}},'+                                        
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+			  '"father" : {'+
+				'"name" : "father",'+
+				'"pattern" : {'+
+                                        '"0" : "father"'+
+                                '},'+
+				'"answer" : "I don\'t have a dad. It\'s doesn\'t work.",'+
+				'"audio": {'+
+                                    '"0":{'+
+                                        '"id":"chatcartman_cartman_dad",'+
+                                        '"url":"путь к файлу ./audio/cartman/dad.mp3",'+
+                                        '"time":"20"'+
+                                        '}},'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 			 
+			 '"thinkaboutkyle" : {'+
+				'"name" : "thinkaboutkyle",'+
+				'"pattern" : {'+                                        
+					'"0":"what do you think about Kyle",'+
+					'"1":"think Kyle"'+
+                                 '},'+                                 
+				'"answer" : "He is fucking Jew",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+                         
+			  '"thinkaboutkenny" : {'+
+				'"name" : "thinkaboutkenny",'+
+				'"pattern" : {'+
+						'"0":"what do you think about Kenny",'+
+						'"1":"what do you think about Kenni",'+
+						'"2":"think Kenny",'+
+                                                '"3":"kenny",'+
+						'"4":"Kenny\'s family"'+
+					'},'+
+				'"answer" : "Kenny\'s family is so poor, they had to put their cardboard box up for a second mortgage",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+                        '"money" : {'+
+				'"name" : "money",'+
+				'"pattern" : {'+
+                                        '"0" : "for money",'+
+                                        '"1": "money"'+
+                                '},'+
+				'"answer" : "I have never in my life done anything just for the money! If I\'m lying may the Lord strike me down right now!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"likemoney" : {'+
+				'"name" : "likemoney",'+
+				'"pattern" : {'+
+						'"0":"like money",'+
+						'"1":"love money"'+
+					'},'+
+				'"answer" : "Yes, i love money so much!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"allright" : {'+
+				'"name" : "allright",'+
+				'"pattern" : {'+
+						'"0":"are you ok",'+
+						'"1":"all right"'+
+					'},'+
+				'"answer" : "You know that feeling when the huge dump you just took shoots back up inside your ass? No, I\'m not all right!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"haven" : {'+
+				'"name" : "haven",'+
+				'"pattern" : {'+
+                                        '"0" : "haven"'+
+                                '},'+
+				'"answer" : "Heaven could be like the pixie fairies of bubblegum forrest. you only see them if you really believe it them",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"drugs" : {'+
+				'"name" : "drugs",'+
+				'"pattern" : {'+
+                                        '"0" : "drugs"'+
+                                '},'+
+				'"answer" : "Drugs are bad because if you do drugs you\'re a hippie and hippies suck",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+		 
+			 '"like" : {'+
+				'"name" : "like",'+
+				'"pattern" : {'+
+                                        '"0" : "do you like"'+
+                                '},'+
+				'"answer" : "Yes. May be..",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"suckmyballs" : {'+
+				'"name" : "suckmyballs",'+
+				'"pattern" : {'+
+                                        '"0" : "suck my balls"'+
+                                '},'+
+				'"answer" : "Yes. May be..",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"myass" : {'+
+				'"name" : "myass",'+
+				'"pattern" : {'+
+                                        '"0" : "my ass"'+
+                                '},'+
+				'"answer" : "OK, that\'s enough fat-ass jokes for this week",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"fatass" : {'+
+				'"name" : "fatass",'+
+				'"pattern" : {'+
+                                        '"0" : "fat ass"'+
+                                '},'+
+				'"answer" : "OK, that\'s enough fat-ass jokes for this week",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+			 
+			 
+			 '"yourass" : {'+
+				'"name" : "yourass",'+
+				'"pattern" : {'+
+						'"0":"in your ass",'+
+						'"1":"your ass",'+
+						'"2":"from your ass",'+
+						'"3":"out of your ass"'+
+					'},'+
+				'"answer" : "Ok, that does it! Now listen! Why is it that everything today has involved things either going in or coming out of my ass? It\'s completely immature!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 		
+			 '"ass" : {'+
+				'"name" : "ass",'+
+				'"pattern" : {'+
+                                        '"0" : "ass"'+
+                                '},'+
+				'"answer" : "Oh, yeah? Oh, yeah? Say that to my face, pussy!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+			 
+					
 
-                      '},'+
-                    '"bitch" : {'+
-                        '"name":"bitch",'+
-                        '"pattern": {'+
-                                '"0" : "bitch",'+
-                                '"1" : "Bitch"'+
-                            '},'+
-                        '"answer": "Bitch! Don\'t coll me bitch, bitch!",'+
-                        '"audio": {'+
-                                '"0":{'+
-                                    '"id":"main-cartman_1",'+
-                                    '"url":"./audio/cartman/main1.mp3",'+
-                                    '"time":"50"'+
-                                 '}'+
-                            '},'+
-                        '"url":"../audio/carman-bitch.ogg",'+
-                        '"time":"110",'+
-                         '"animationParts": {'+
-                              '"0" : "CartmanMount"'+
-                          '}'+
-                     '},'+
-                     
-                     '"homeDefault" : {'+
-                            '"name":"main",'+
-                            '"pattern": {'+
-                                '"0" : "no"'+                              
-                            '},'+
-                            '"answer": "no",'+
-                            '"audio": {'+
-                               '"0":{'+
-                                   '"id":"main-cartman_1",'+
-                                   '"url":"./audio/cartman/main1.mp3",'+
-                                   '"time":"50"'+
-                                   '},'+
-                                '"1":{'+
-                                   '"id":"main-cartman_2",'+
-                                   '"url":"./audio/cartman/main2.mp3",'+
-                                   '"time":"90"'+
-                                   '},'+
-                                '"2":{'+
-                                   '"id":"main-cartman_3",'+
-                                   '"url":"./audio/cartman/main3.mp3",'+
-                                   '"time":"140"'+
-                                   '},'+
-                                '"3":{'+
-                                   '"id":"main-cartman_4",'+
-                                   '"url":"./audio/cartman/main4.mp3",'+
-                                   '"time":"120"'+
-                                   '}'+                 
-                              '}'+ 
-                     '}'+
-                     
-             '},'+        
-             '"stan": {'+
-                   '"default": {'+
-                        '"name" : "default",'+
-                        '"pattern" : "default",'+
-                        '"answer": "Ok, lets talk about something else!",'+
-                        '"audio" : "cartman-no",'+
-                        '"url" : "../audio/cartman-no.mp3",'+                     
-                        '"time" : "10",'+
-                        '"animationParts" : {'+
-                                '"0":"StanChatRotAnimation"'+
+			 '"hippies" : {'+
+				'"name" : "hippies",'+
+				'"pattern" : {'+
+                                        '"0" : "hippies"'+
+                                '},'+
+				'"answer" : "I hate hippies! I mean, the way they always talk about protectin the earth and then drive around in cars that get poor gas mileage and wear those stupid bracelets I hate em! I wanna kick em in the nuts!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+					 
+			 '"think2" : {'+
+				'"name" : "think2",'+
+				'"pattern" : {'+
+                                        '"0" : "what you think"'+
+                                '},'+
+				'"answer" : "I don\'t know",'+
+				'"audio": {'+
+                                    '"0":{'+
+                                        '"id":"chatcartman_cartman_think",'+
+                                        '"url":"./audio/cartman/dontknow.mp3",'+
+                                        '"time":"15"'+
+                                        '}'+
+                                '},'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 			 
+			 '"think" : {'+
+				'"name" : "think",'+
+				'"pattern" : {'+
+                                        '"0" : "what do you think about"'+
+                                '},'+
+				'"answer" : "I don\'t know",'+
+				'"audio": {'+
+                                    '"0":{'+
+                                        '"id":"chatcartman_cartman_think",'+
+                                        '"url":"./audio/cartman/dontknow.mp3",'+
+                                        '"time":"15"'+
+                                        '}},'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"iwant" : {'+
+				'"name" : "iwant",'+
+				'"pattern" : {'+
+                                        '"0" : "i want"'+
+                                '},'+
+				'"answer" : "Dude, that is not cool!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+
+ 			 '"hi" : {'+
+				'"name" : "hi",'+
+				'"pattern" : {'+
+						'"0":"hi",'+
+						'"1":"hello"'+
+					'},'+
+				'"answer" : "hi",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+		
+
+			 '"fuck" : {'+
+				'"name" : "fuck",'+
+				'"pattern" : {'+
+                                        '"0" : "fuck"'+
+                                '},'+
+				'"answer" : "What\'s the big deal? It doesn\'t hurt anybody. Fuck-fuckety-fuck-fuck-fuck. ",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+		
+
+			 '"Killkenny" : {'+
+				'"name" : "Killkenny",'+
+				'"pattern": {'+
+                                        '"0":"killed kenny",'+
+                                        '"1":"kill keny"'+
+				'},'+
+				'"answer" : "Bastards!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"youbitch" : {'+
+				'"name" : "youbitch",'+
+				'"pattern" : {'+
+						'"0":"you are bitch",'+
+						'"1":"bitch",'+
+						'"2":"you bitch"'+
+                                '},'+
+				'"answer" : "Bitch! Dont call me bitch, bitch!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+			 
+			 
+			 '"areyou" : {'+
+				'"name" : "areyou",'+
+				'"pattern" : {'+
+                                        '"0":"are you going",'+
+                                        '"1":"are you being"'+
+                                '},'+
+				'"answer" : "no",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"maybe" : {'+
+				'"name" : "maybe",'+
+				'"pattern" : {'+
+                                        '"0":"maybe",'+
+                                        '"1":"may be",'+
+                                        '"2":"may you",'+
+                                        '"3":"can you"'+
+                                '},'+
+				'"answer" : "May be yes or may be not, dude. I don\'t want to talk about this.",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"doyou" : {'+
+				'"name" : "doyou",'+
+				'"pattern" : {'+
+                                        '"0":"do you",'+
+                                        '"1":"did it",'+
+                                        '"2":"can you"'+
+					'},'+
+				'"answer" : "Yeah, but you know what?  You can\'t do that. ",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"doyouknow" : {'+
+				'"name" : "doyouknow",'+
+				'"pattern" : {'+
+                                        '"0":"do you know",'+
+                                        '"1":"know"'+
+					'},'+
+				'"answer" : "I know, but you don\'t! Na-na-na-na-na-na!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"where" : {'+
+				'"name" : "where",'+
+				'"pattern"  : {'+
+                                        '"0" : "where"'+
+                                '},'+
+				'"answer" : "I don\'t remember",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+
+ 			 '"why" : {'+
+				'"name" : "why",'+
+				'"pattern"  : {'+
+                                        '"0" : "why"'+
+                                '},'+
+				'"answer" : "It doesn\'t metter",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"what" : {'+
+				'"name" : "what",'+
+				'"pattern"  : {'+
+                                        '"0" : "what"'+
+                                '},'+
+				'"answer" : "What, dude?",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+			 
+			 '"youare" : {'+
+				'"name" : "youare",'+
+				'"pattern"  : {'+
+                                        '"0" : "you are"'+
+                                '},'+
+				'"answer" : "You\'re damn right",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+  			 '"default" : {'+
+				'"name" : "default",'+
+				'"pattern" : {'+
+                                        '"0" : "0"'+
+                                '},'+
+				'"answer" : "Alright. Look. I didnt want to have to say this, but I think maybe were not seeing heaven because one of us doesnt believe in it enough!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "CartmanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"homeDefault" : {'+
+                                '"name" : "homeDefault",'+
+                                '"pattern" : "0",'+
+                                '"answer" : "What did you say?!",'+
+                                '"audio": {'+
+                                    '"0":{'+
+                                            '"id":"main-cartman_1",'+
+                                            '"url":"./audio/cartman/main1.mp3",'+
+                                            '"time":"50"'+
+                                    '},'+                          
+                                     '"1":{'+
+                                            '"id":"main-cartman_2",'+
+                                            '"url":"./audio/cartman/main2.mp3",'+
+                                            '"time":"90"'+
+                                          '},'+
+                                     '"2":{'+
+                                            '"id":"main-cartman_3",'+
+                                            '"url":"./audio/cartman/main3.mp3",'+
+                                            '"time":"140"'+
+                                          '},'+
+                                     '"3":{'+
+                                            '"id":"main-cartman_4",'+
+                                            '"url":"./audio/cartman/main4.mp3",'+
+                                            '"time":"120"'+
+                                          '},'+
+                                    '"4":{'+
+                                            '"id":"main-cartman_5",'+
+                                            '"url":"./audio/cartman/main5.mp3",'+
+                                            '"time":"90"'+
+                                    '},'+
+                                    '"5":{'+
+                                            '"id":"main-cartman_6",'+
+                                            '"url":"./audio/cartman/main6.mp3",'+
+                                            '"time":"20"'+
+                                    '},'+
+                                    '"6":{'+
+                                            '"id":"main-cartman_7",'+
+                                            '"url":"./audio/cartman/main7.mp3",'+
+                                            '"time":"50"'+
+                                    '},'+
+                                    '"7":{'+
+                                            '"id":"main-cartman_8",'+
+                                            '"url":"./audio/cartman/main8.mp3",'+
+                                            '"time":"150"'+
+                                    '},'+
+                                    '"8":{'+
+                                            '"id":"main-cartman_9",'+
+                                            '"url":"./audio/cartman/main9.mp3",'+
+                                            '"time":"110"'+
+                                    '}'+
+                                '},'+ 
+                            '"animationParts": {'+
+                                    '"0" : "CartmanMount"'+
                             '}'+
-                     '},'+
-                      '"homeDefault" : {'+
-                        '"name":"main",'+
-                        '"pattern": "no",'+
-                        '"answer": "no",'+
-                        '"audio": {'+
-                           '"0":{'+
-                               '"id":"main-stan_1",'+
-                               '"url":"./audio/stan/main1.mp3",'+
-                               '"time":"50"'+
-                               '},'+
-                            '"1":{'+
-                               '"id":"main-stan_2",'+
-                               '"url":"./audio/stan/main2.mp3",'+
-                               '"time":"70"'+
-                               '}'+                             
-                          '},'+ 
-                         '"animationParts": {'+
-                              '"0" : "StanRotHome"'+
-                          '}'+
-                     '}'+
-            '},'+
-             '"kail": {'+
-                   '"default": {'+
-                        '"name" : "default",'+
-                        '"pattern" : "default",'+
-                        '"answer": "Ok, lets talk about something else!",'+
-                        '"audio" : "cartman-no",'+
-                        '"url" : "../audio/cartman-no.mp3",'+                     
-                        '"time" : "10",'+
-                        '"animationParts" : {'+
-                                '"0":"KailChatRotAnimation"'+
+					'}'+
+			 
+			 
+			 
+'},'+
+'"stan" : {'+
+                          '"thinkaboutkyle" : {'+
+				'"name" : "thinkaboutkyle",'+
+				'"pattern" : {'+
+						'"0":"what do you think about Kyle",'+
+						'"1":"think Kyle"'+
+					'},'+
+				'"answer" : "He is my best friend fucking Jew",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+                         '},'+
+			 
+ 			 '"jew" : {'+
+				'"name" : "jew",'+
+				'"pattern" : "jew",'+
+				'"answer" : "Speak about it with Kyle",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"thinkaboutkartman" : {'+
+				'"name" : "thinkaboutkartman",'+
+				'"pattern" : {'+
+						'"0":"what do you think about kartman",'+
+						'"1":"think kartman"'+
+					'},'+
+				'"answer" : "He is fat ass!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"areyou" : {'+
+				'"name" : "areyou",'+
+				'"pattern" : {'+
+						'"0":"are you going",'+
+						'"1":"are you being"'+
+					'},'+
+				'"answer" : "no",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+			 
+			 '"maybe" : {'+
+				'"name" : "maybe",'+
+				'"pattern" : {'+
+						'"0":"maybe",'+
+						'"1":"may be",'+
+						'"2":"may you",'+
+						'"3":"can you"'+
+					'},'+
+				'"answer" : "May be yes or may be not, dude. I don\'t want to talk about this.",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+ 
+			 '"likemoney" : {'+
+				'"name" : "likemoney",'+
+				'"pattern" : {'+
+						'"0":"like money",'+
+						'"1":"love money"'+
+					'},'+
+				'"answer" : "It\'s not important for me",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 			 
+			 '"haven" : {'+
+				'"name" : "haven",'+
+				'"pattern" : "haven",'+
+				'"answer" : "Talk about this with Kenny. He knows more.",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"drugs" : {'+
+				'"name" : "drugs",'+
+				'"pattern" : "drugs",'+
+				'"answer" : "Drugs are not so fun",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+		 
+			 '"like" : {'+
+				'"name" : "like",'+
+				'"pattern" : "do you like",'+
+				'"answer" : "Yeah.",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"suckmyballs" : {'+
+				'"name" : "suckmyballs",'+
+				'"pattern" : "suck my balls",'+
+				'"answer" : "Yes. May be..",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"myass" : {'+
+				'"name" : "myass",'+
+				'"pattern" : "my ass",'+
+				'"answer" : "It\'s stupid,dude",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"fatass" : {'+
+				'"name" : "fatass",'+
+				'"pattern" : "fat  ass",'+
+				'"answer" : "I\'m not a fat-ass! Talk about it with Cartman",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+			 
+			 
+			 '"yourass" : {'+
+				'"name" : "yourass",'+
+				'"pattern" : {'+
+                                        '"0":"in your ass",'+
+                                        '"1":"your ass",'+
+                                        '"2":"from your ass",'+
+                                        '"3":"out of your ass"'+
+				'},'+
+				'"answer" : "Ok, that does it! Now listen! that\'s really enough ass jokes for this week",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 		
+			 '"ass" : {'+
+				'"name" : "ass",'+
+				'"pattern" : "ass",'+
+				'"answer" : "Ass! Ass, ass, big ass, fat ass, what else?",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+			 
+					
+
+			 '"hippies" : {'+
+				'"name" : "hippies",'+
+				'"pattern" : "hippies",'+
+				'"answer" : "Cartman hates hippies",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+					 
+			 '"think2" : {'+
+				'"name" : "think2",'+
+				'"pattern" : "what you think",'+
+				'"answer" : "I don\'t know",'+
+				'"audio": "0",'+   
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 			 
+			 '"think" : {'+
+				'"name" : "think",'+
+				'"pattern" : "what do you think about",'+
+				'"answer" : "I don\'t know",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"iwant" : {'+
+				'"name" : "iwant",'+
+				'"pattern" : "i want",'+
+				'"answer" : " That\'s impossible!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+
+ 			 '"hi" : {'+
+				'"name" : "hi",'+
+				'"pattern" : {'+
+                                        '"0":"hi",'+
+                                        '"1":"hello"'+
+				'},'+
+				'"answer" : "Hi,dude!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+		
+
+
+			 '"fuck" : {'+
+				'"name" : "fuck",'+
+				'"pattern" : "fuck",'+
+				'"answer" : "Wow, you\'re so smart",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+			 
+			 
+			 '"areyou" : {'+
+				'"name" : "areyou",'+
+				'"pattern" : {'+
+                                        '"0":"are you going",'+
+                                        '"1":"are you being"'+
+				'},'+
+				'"answer" : "no",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"maybe" : {'+
+				'"name" : "maybe",'+
+				'"pattern" : {'+
+                                        '"0":"maybe",'+
+                                        '"1":"may be",'+
+                                        '"2":"may you",'+
+                                        '"3":"can you"'+
+				'},'+
+				'"answer" : "May be yes or may be not, dude. I don\'t want to talk about this.",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"doyou" : {'+
+				'"name" : "doyou",'+
+				'"pattern" : {'+
+                                        '"0":"do you",'+
+                                        '"1":"did it",'+
+                                        '"2":"can you"'+
+                                '},'+
+				'"answer" : "Yeah, but you know what?  You can\'t do that. ",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"doyouknow" : {'+
+				'"name" : "doyouknow",'+
+				'"pattern" : {'+
+                                        '"0":"do you know",'+
+                                        '"1":"know"'+
+                                '},'+
+				'"answer" : "Yeah, i know it, dude! ",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"where" : {'+
+				'"name" : "where",'+
+				'"pattern"  : "where",'+
+				'"answer" : "I don\'t remember",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+
+ 			 '"why" : {'+
+				'"name" : "why",'+
+				'"pattern"  : "why",'+
+				'"answer" : "It doesn\'t metter",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+
+			 '"what" : {'+
+				'"name" : "what",'+
+				'"pattern"  : "what",'+
+				'"answer" : "What, dude?",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"Killkenny" : {'+
+				'"name" : "Killkenny",'+
+				'"pattern": {'+
+                                        '"0":"killed kenny",'+
+                                        '"1":"kill kenny"'+
+                                '},'+
+				'"answer" : "Bastards!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"youbitch" : {'+
+				'"name" : "youbitch",'+
+				'"pattern" : {'+
+                                        '"0":"you are bitch",'+
+                                        '"1":"you bitch"'+
+                                '},'+
+				'"answer" : "Don\'t call me bitch!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"youare" : {'+
+				'"name" : "youare",'+
+				'"pattern"  : {'+
+                                         '"0":"you are?"'+
+                                '},'+
+				'"answer" : "Whatabutt?",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+			  '"default" : {'+
+				'"name" : "default",'+
+				'"pattern" : "0",'+
+				'"answer" : "What did you say?!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "StanMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"homeDefault" : {'+
+                          '"name" : "homeDefault",'+
+                          '"pattern" : "0",'+
+                          '"answer" : "What did you say?!",'+
+                          '"audio": {'+
+                                    '"0":{'+
+                                            '"id":"chatstan_stan_main1",'+
+                                            '"url":"./audio/stan/main1.mp3",'+
+                                            '"time":"50"'+
+                                    '},'+                  
+                                    '"1":{'+
+                                            '"id":"chatstan_stan_main2",'+
+                                            '"url":"./audio/stan/main2.mp3",'+
+                                            '"time":"70"'+
+                                    '},'+                  
+                                    '"2":{'+
+                                            '"id":"chatstan_stan_main3",'+
+                                            '"url":"./audio/stan/main3.mp3",'+
+                                            '"time":"50"'+
+                                    '},'+                  
+                                    '"3":{'+
+                                            '"id":"chatstan_stan_main4",'+
+                                            '"url":"./audio/stan/main4.mp3",'+
+                                            '"time":"30"'+
+                                    '},'+
+                                    '"4":{'+
+                                            '"id":"chatstan_stan_main5",'+
+                                            '"url":"./audio/stan/main5.mp3",'+
+                                            '"time":"20"'+
+                                    '},'+  
+                                    '"5":{'+
+                                                  '"id":"chatstan_stan_main6",'+
+                                                  '"url":"./audio/stan/main6.mp3",'+
+                                                  '"time":"20"'+
+                                          '}'+
+                                  '},'+ 
+                                    '"animationParts": {'+
+                                            '"0" : "StanMount"'+
+                                    '}'+
+					'}'+
+			 
+
+	'},'+	
+'"kyle" : {'+
+                        '"thinkaboutkyle" : {'+
+				'"name" : "thinkaboutkyle",'+
+				'"pattern" : {'+
+                                        '"0":"what do you think about Kyle",'+
+                                        '"1":"think Kyle"'+
+                                '},'+
+				'"answer" : "He is my best friend fucking Jew",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"thinkaboutkartman" : {'+
+				'"name" : "thinkaboutkartman",'+
+				'"pattern" : {'+
+                                        '"0":"what do you think about kartman",'+
+                                        '"1":"think kartman"'+
+                                '},'+
+				'"answer" : "He is fat ass!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"areyoujew" : {'+
+				'"name" : "areyoujew",'+
+				'"pattern" : {'+
+                                        '"0":"are you jew",'+
+                                        '"1":"you jew"'+
+                                '},'+
+				'"answer" : "Don\'t call me Jew!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"areyou" : {'+
+				'"name" : "areyou",'+
+                                '"pattern" : {'+
+                                        '"0":"are you going",'+
+                                        '"1":"are you being"'+
+                                '},'+
+				'"answer" : "no",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"maybe" : {'+
+				'"name" : "maybe",'+
+				'"pattern" : {'+
+                                        '"0":"maybe",'+
+                                        '"1":"may be",'+
+                                        '"2":"may you",'+
+                                        '"3":"can you"'+
+                                '},'+
+				'"answer" : "May be yes or may be not, dude. I don\'t want to talk about this.",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+ 
+			 '"likemoney" : {'+
+				'"name" : "likemoney",'+
+				'"pattern" : {'+
+                                        '"0":"like money",'+
+                                        '"1":"love money"'+
+                                '},'+
+				'"answer" : "It\'s not important for me",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 			 
+			 '"haven" : {'+
+				'"name" : "haven",'+
+				'"pattern" : "haven",'+
+				'"answer" : "Heaven where Kenny wait us",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"drugs" : {'+
+				'"name" : "drugs",'+
+				'"pattern" : "drugs",'+
+				'"answer" : "Drugs are not so fun",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+		 
+			 '"like" : {'+
+				'"name" : "like",'+
+				'"pattern" : "do you like",'+
+				'"answer" : "Yeah.",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"suckmyballs" : {'+
+				'"name" : "suckmyballs",'+
+				'"pattern" : "suck my balls",'+
+				'"answer" : " I\'ll kick your ass!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"myass" : {'+
+				'"name" : "myass",'+
+				'"pattern" : "my ass",'+
+				'"answer" : "It\'s stupid,dude",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"fatass" : {'+
+				'"name" : "fatass",'+
+				'"pattern" : "fat  ass",'+
+				'"answer" : "I\'m not a fat-ass! Talk about it with Cartman",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+			 
+			 
+			 '"yourass" : {'+
+				'"name" : "yourass",'+
+				'"pattern" : {'+
+                                        '"0":"in your ass",'+
+                                        '"1":"your ass",'+
+                                        '"2":"from your ass",'+
+                                        '"3":"out of your ass"'+
+                                '},'+
+				'"answer" : "Ok, that does it! Now listen! that\'s really enough ass jokes for this week",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 		
+			 '"ass" : {'+
+				'"name" : "ass",'+
+				'"pattern" : "ass",'+
+				'"answer" : "Ass, ass, ass, everething is gis ass",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+			 
+					
+
+			 '"hippies" : {'+
+				'"name" : "hippies",'+
+				'"pattern" : "hippies",'+
+				'"answer" : "Cartman hates hippies",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+					 
+			 '"think2" : {'+
+				'"name" : "think2",'+
+				'"pattern" : "what you think",'+
+				'"answer" : "I don\'t know",'+
+				'"audio": "0",'+   
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 			 
+			 '"think" : {'+
+				'"name" : "think",'+
+				'"pattern" : "what do you think about",'+
+				'"answer" : "I don\'t know",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"iwant" : {'+
+				'"name" : "iwant",'+
+				'"pattern" : "i want",'+
+				'"answer" : " That\'s impossible!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+
+ 			 '"hi" : {'+
+				'"name" : "hi",'+
+				'"pattern" : {'+
+                                        '"0":"hi",'+
+                                        '"1":"hello"'+
+                                '},'+
+				'"answer" : "Hi,dude!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+		
+
+
+			 '"fuck" : {'+
+				'"name" : "fuck",'+
+				'"pattern" : "fuck",'+
+				'"answer" : "Wow, you\'re so smart",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+			 
+			 
+			 '"areyou" : {'+
+				'"name" : "areyou",'+
+				'"pattern" : {'+
+                                        '"0":"are you going",'+
+                                        '"1":"are you being"'+
+                                '},'+
+				'"answer" : "no",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"maybe" : {'+
+				'"name" : "maybe",'+
+				'"pattern" : {'+
+                                        '"0":"maybe",'+
+                                        '"1":"may be",'+
+                                        '"2":"may you",'+
+                                        '"3":"can you"'+
+                                '},'+
+				'"answer" : "May be yes or may be not, dude. I don\'t want to talk about this.",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"doyou" : {'+
+				'"name" : "doyou",'+
+				'"pattern" : {'+
+                                        '"0":"do you",'+
+                                        '"1":"did it",'+
+                                        '"2":"can you"'+
+                                '},'+
+				'"answer" : "Yeah, but you know what?  You can\'t do that. ",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"doyouknow" : {'+
+				'"name" : "doyouknow",'+
+				'"pattern" : {'+
+                                        '"0":"do you know",'+
+                                        '"1":"know"'+
+                                '},'+
+				'"answer" : "Yeah, i know it, dude! ",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"where" : {'+
+				'"name" : "where",'+
+				'"pattern"  : "where",'+
+				'"answer" : "I don\'t remember",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+
+ 			 '"why" : {'+
+				'"name" : "why",'+
+				'"pattern"  : "why",'+
+				'"answer" : "It doesn\'t metter",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+
+			 '"what" : {'+
+				'"name" : "what",'+
+				'"pattern"  : "what",'+
+				'"answer" : "What, dude?",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"Killkenny" : {'+
+				'"name" : "Killkenny",'+
+				'"pattern": {'+
+                                        '"0":"killed kenny",'+
+                                        '"1":"kill keny"'+
+                                '},'+
+				'"answer" : "Bastards!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+ 			 '"youbitch" : {'+
+				'"name" : "youbitch",'+
+				'"pattern" : {'+
+						'"0":"you are bitch",'+
+						'"1":"you bitch"'+
+					'},'+
+				'"answer" : "Don\'t call me bitch!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+			 '"youare" : {'+
+				'"name" : "youare",'+
+				'"pattern"  : "you are",'+
+				'"answer" : "Shut up!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+			  '"default" : {'+
+				'"name" : "default",'+
+				'"pattern" : "0",'+
+				'"answer" : "What did you say?!",'+
+				'"audio": "0",'+  
+				'"animationParts": {'+
+					'"0" : "KyleMount"'+
+				'}'+
+			 '},'+
+			 
+			 
+			 '"homeDefault" : {'+
+                          '"name" : "homeDefault",'+
+                          '"pattern" : "0",'+
+                          '"answer" : "What did you say?!",'+
+                          '"audio": {'+
+                                    '"0":{'+
+                                            '"id":"chatkyle_kyle_main1",'+
+                                            '"url":"./audio/kyle/main1.mp3",'+
+                                            '"time":"20"'+
+                                    '},'+                          
+                                     '"1":{'+
+                                                  '"id":"chatkyle_kyle_main2",'+
+                                                  '"url":"./audio/kyle/main2.mp3",'+
+                                                  '"time":"10"'+
+                                          '},'+
+                                     '"1":{'+
+                                                  '"id":"chatkyle_kyle_main3",'+
+                                                  '"url":"./audio/kyle/main3.mp3",'+
+                                                  '"time":"60"'+
+                                          '}'+
+                            '},'+ 
+                            '"animationParts": {'+
+                                    '"0" : "KyleMount"'+
                             '}'+
-                     '},'+
-                     '"homeDefault" : {'+
-                        '"name":"main",'+
-                        '"pattern": "no",'+
-                        '"answer": "no",'+
-                        '"audio": {'+
-                           '"0":{'+
-                               '"id":"main-kail_1",'+
-                               '"url":"./audio/kail/main1.mp3",'+
-                               '"time":"15"'+
-                               '},'+
-                            '"1":{'+
-                               '"id":"main-kail_2",'+
-                               '"url":"./audio/kail/main2.mp3",'+
-                               '"time":"10"'+
-                               '}'+                             
-                          '},'+ 
-                         '"animationParts": {'+
-                              '"0" : "kailRotHome"'+
-                          '}'+
-                     '}'+
-            '}'+
+					'}'+
+			
+
+	'},'+
+'"kenny": {'+
+                    '"default" : {'+
+                          '"name" : "default",'+
+                          '"pattern" : "0",'+
+                          '"answer" : "What did you say?!",'+
+                          '"audio": {'+
+                                    '"0":{'+
+                                    '"id":"chatkenny_kenny_def1",'+
+                                    '"url":"./audio/kenny/gef1.mp3",'+
+                                    '"time":"10"'+
+                            '}'+
+                                '},'+ 
+                            '"animationParts": {'+
+                                    '"0" : "KyleMount"'+
+                            '}'+
+				'},'+			 
+
+                    '"homeDefault" : {'+
+                                    '"name" : "homeDefault",'+
+                                    '"pattern" : "0",'+
+                                    '"answer" : "What did you say?!",'+
+                                    '"audio": {'+
+                                        '"0":{'+
+                                            '"id":"chatkenny_kenny_main1",'+
+                                            '"url":"./audio/kenny/main1.mp3",'+
+                                            '"time":"20"'+
+                                        '},'+                          
+                                         '"1":{'+
+                                                '"id":"chatkenny_kenny_main2",'+
+                                                '"url":"./audio/kenny/main2.mp3",'+
+                                                '"time":"20"'+
+                                        '},'+
+                                        '"2":{'+
+                                                '"id":"chatkenny_kenny_main3",'+
+                                                '"url":"./audio/kenny/main3.mp3",'+
+                                                '"time":"20"'+
+                                         '},'+ 
+                                        '"3":{'+
+                                                '"id":"chatkenny_kenny_main4",'+
+                                                '"url":"./audio/kenny/main4.mp3",'+
+                                                '"time":"20"'+                            
+                                         '},'+ 
+                                        '"4":{'+
+                                                '"id":"chatkenny_kenny_main5",'+
+                                                '"url":"./audio/kenny/main5.mp3",'+
+                                                '"time":"20"'+
+                                        '}'+
+                                     '},'+ 
+                                     '"animationParts": {'+
+                                            '"0" : "KyleMount"'+
+                                    '}'+
+			'}'+
+			 
+			 
+	'}'+
 '}';
 
 
 $(function(){
     
  $(".page").css({"width" : $(window).width()+"px", "height" : $(window).height()+"px"});
-  //document.write(dialog)
+//document.write(dialog)
  var Dialog = $.parseJSON(dialog);
-
 //приобразуем в объект
 var myDate  = $.parseJSON($Date); 
 
@@ -353,7 +1569,7 @@ $(window).resize(function(){
         var $link = $(this);
         var linkName = $(this).attr("goto");
         var $menu = $(".b_menu");       
-            $menu.removeClass("home chatStan chatCartman chatKenny chatKail movie");
+            $menu.removeClass("home chatStan chatCartman chatKenny chatKyle movie");
             $menu.addClass(linkName);           
             $menu.children("li").removeClass("e_menu-active");
              
@@ -373,7 +1589,7 @@ $(window).resize(function(){
     });
  
     $(".say").click(function(){     
-
+      $(".bable").show('fast');
       var input = $(this).parent("div").children(".chat-input");       
       var name = input.attr("name");
       var page = input.parent("div").parent("div").parent("div");
@@ -402,7 +1618,7 @@ $(".chat-input").keypress(function(event){
 
 //Анимация на галвной странице
 
-$(".cartman, .kail, .stan, .cartmanChat").live('click', function(){
+$(".cartman, .kyle, .stan, .cartmanChat, .chatStan, .chatKanny, .chatKyle").live('click', function(){
     
         var target = this.className;
         var targetObj;
@@ -411,10 +1627,12 @@ $(".cartman, .kail, .stan, .cartmanChat").live('click', function(){
                targetObj = this;
             };         
         });
-        console.log(targetObj.name);
+        console.log(Dialog[targetObj.name]);
         var animationObj; 
         var dialogObj = Dialog[targetObj.name].homeDefault;
+        
         console.log(dialogObj);
+        
         $.each(myDate.parts, function(index){              
            if (this.parent === target ){            
                animationObj = this;
@@ -545,7 +1763,7 @@ var sizeUpdate = function(firstTime, date, wK, hK){
         });
 
 }else {
-	$.each(date.elements, function(index, el){ 
+	$.each(date.elements, function(index, el){
 		
             if  ( wK != 1 && hK != 1 ){                             
                     this.width_ = this.width_  *  wK; // домножаем на изменение сторон
