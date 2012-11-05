@@ -66,9 +66,38 @@ html {
     height: 40px;
     padding: 0px 10px;
     line-height: 40px;
+    margin-left: 20px;
+    background: url('./img/menu.png') no-repeat;
+    
 }
 
- /*Action blocks
+
+.e_menu-home {background-position: 0px 0px; width: 67px}
+.e_menu-home:hover {background-position: 0px -36px;}
+.home .e_menu-home {background-position: 0px -73px;}
+
+.e_menu-cartman{ width: 137px; background-position: -240px 3px;}
+.e_menu-cartman:hover{ background-position: -240px -32px;}
+.chatCartman .e_menu-cartman {background-position: -240px -70px;}
+
+.e_menu-stan {width: 65px; background-position: -542px 5px;}
+.e_menu-stan:hover {background-position: -542px -31px;}
+.chatStan .e_menu-stan {background-position: -542px -70px;}
+
+.e_menu-kail {width: 65px; background-position: -428px 5px;}
+.e_menu-kail:hover {background-position: -428px -31px;}
+.chatKail .e_menu-kail {background-position: -428px -70px;}
+
+.e_menu-kenny {width: 89px; background-position: -657px 5px;}
+.e_menu-kenny:hover {background-position: -657px -31px;}
+.chatKenny .e_menu-kenny {background-position: -657px -70px;}
+
+.e_menu-movie {width: 79px; background-position: -111px 0px;}
+.e_menu-movie:hover {background-position: -111px -36px;}
+.movie .e_menu-movie {background-position: -111px -73px;}
+
+.e_menu-active {background-position-y: -71px;} 
+/*Action blocks
 */
 .b_wArea {
   
@@ -115,7 +144,7 @@ html {
     width:100%;
     height: 100%;
     float: left;    
-    background: url(./img/H3.jpg) 0px 0px no-repeat;
+    background: url(./img/H4.jpg) 0px 0px no-repeat;
 }
 
 
@@ -133,7 +162,7 @@ html {
     width:100%;
     height: 100%;
     float: left;    
-    background: url(./img/H4.jpg) 0px 0px no-repeat;
+    background: url(./img/H3.jpg) 0px 0px no-repeat;
 }
 
 

@@ -47,9 +47,9 @@ var $Date =  '{'+
                       '"style":"bottom: 15%; left: 75%; z-index: 100;  position: absolute; background: url(./img/kenny.png) no-repeat; background-size: contain; "'+
 		'},'+
                 '"cartmanChat":{'+
-                     '"name":"Cartamn",'+
+                     '"name":"cartman",'+
                      '"pageName":"chatCartman",'+ 
-                     '"className":"homeCartman",'+ // он же радитель для частички
+                     '"className":"cartmanChat",'+ // он же радитель для частички
                      '"fix":"1",'+
                      '"width_":"340",'+
                      '"height_":"343",'+
@@ -96,7 +96,7 @@ var $Date =  '{'+
         '"parts":{'+
             '"CartmanMount":{'+        
                             '"name":"mount",'+
-                            '"parent":"homeCartman",'+                            
+                            '"parent":"cartmanChat",'+                            
                             '"css":"height: 40px; width: 50px; top: 47%; left: 50%; margin-left: -6%; position: absolute;",'+
                             '"className":"cartmanMount",'+
                             '"tagName":"canvas",'+
@@ -177,7 +177,9 @@ var Dialog = "";
 var dialog = '{"cartman": {'+
                     '"hi" : {'+
                         '"name" : "hi",'+
-                        '"pattern" : "hi",'+
+                        '"pattern" : {'+
+                                '"0" : "hi"'+
+                            '},'+
                         '"answer" : "Hello!",'+
                         '"audio" : "cartman-no",'+
                         '"url":"../audio/no.mp3",'+
@@ -188,7 +190,9 @@ var dialog = '{"cartman": {'+
                      '},'+
                     '"default" : {'+
                         '"name":"what",'+
-                        '"pattern": "default",'+
+                        '"pattern": {'+
+                                '"0" : "default"'+
+                            '},'+
                         '"answer": "What?",'+
                         '"audio": "cartman-what",'+
                         '"url":"../audio/carman-what.ogg",'+
@@ -199,42 +203,54 @@ var dialog = '{"cartman": {'+
 
                       '},'+
                     '"bitch" : {'+
-                        '"name":"whie",'+
-                        '"pattern": "bitch",'+
+                        '"name":"bitch",'+
+                        '"pattern": {'+
+                                '"0" : "bitch",'+
+                                '"1" : "Bitch"'+
+                            '},'+
                         '"answer": "Bitch! Don\'t coll me bitch, bitch!",'+
-                        '"audio": "cartman-what",'+
+                        '"audio": {'+
+                                '"0":{'+
+                                    '"id":"main-cartman_1",'+
+                                    '"url":"./audio/cartman/main1.mp3",'+
+                                    '"time":"50"'+
+                                 '}'+
+                            '},'+
                         '"url":"../audio/carman-bitch.ogg",'+
-                        '"time":"10",'+
+                        '"time":"110",'+
                          '"animationParts": {'+
                               '"0" : "CartmanMount"'+
                           '}'+
                      '},'+
-                      '"homeDefault" : {'+
-                        '"name":"main",'+
-                        '"pattern": "no",'+
-                        '"answer": "no",'+
-                        '"audio": {'+
-                           '"0":{'+
-                               '"id":"main-cartman_1",'+
-                               '"url":"./audio/cartman/main1.mp3",'+
-                               '"time":"50"'+
-                               '},'+
-                            '"1":{'+
-                               '"id":"main-cartman_2",'+
-                               '"url":"./audio/cartman/main2.mp3",'+
-                               '"time":"90"'+
-                               '},'+
-                            '"2":{'+
-                               '"id":"main-cartman_3",'+
-                               '"url":"./audio/cartman/main3.mp3",'+
-                               '"time":"140"'+
-                               '},'+
-                            '"3":{'+
-                               '"id":"main-cartman_4",'+
-                               '"url":"./audio/cartman/main4.mp3",'+
-                               '"time":"120"'+
-                               '}'+                 
-                          '}'+ 
+                     
+                     '"homeDefault" : {'+
+                            '"name":"main",'+
+                            '"pattern": {'+
+                                '"0" : "no"'+                              
+                            '},'+
+                            '"answer": "no",'+
+                            '"audio": {'+
+                               '"0":{'+
+                                   '"id":"main-cartman_1",'+
+                                   '"url":"./audio/cartman/main1.mp3",'+
+                                   '"time":"50"'+
+                                   '},'+
+                                '"1":{'+
+                                   '"id":"main-cartman_2",'+
+                                   '"url":"./audio/cartman/main2.mp3",'+
+                                   '"time":"90"'+
+                                   '},'+
+                                '"2":{'+
+                                   '"id":"main-cartman_3",'+
+                                   '"url":"./audio/cartman/main3.mp3",'+
+                                   '"time":"140"'+
+                                   '},'+
+                                '"3":{'+
+                                   '"id":"main-cartman_4",'+
+                                   '"url":"./audio/cartman/main4.mp3",'+
+                                   '"time":"120"'+
+                                   '}'+                 
+                              '}'+ 
                      '}'+
                      
              '},'+        
@@ -332,16 +348,15 @@ $(window).resize(function(){
     ResizePage();
  });
  
- 
- 
-    
+// MENU    
     $(".b_menu li").click(function(){ 
         var $link = $(this);
         var linkName = $(this).attr("goto");
-        var $menu = $(".b_menu");
-            $menu.removeClass("home cartman kenny stan kail");
+        var $menu = $(".b_menu");       
+            $menu.removeClass("home chatStan chatCartman chatKenny chatKail movie");
             $menu.addClass(linkName);           
-
+            $menu.children("li").removeClass("e_menu-active");
+             
         var page = $("#"+linkName);
 
             var positionEl = page.offset();           
@@ -352,7 +367,7 @@ $(window).resize(function(){
                 $(".i_wBlock").animate({"margin-left": "-"+slide +"px"}, 1000);
             }
 
-
+          
             $link.addClass("e_menu-active");
 
     });
@@ -367,13 +382,14 @@ $(window).resize(function(){
       var res = chat(name, value, Dialog);
 
           res = Dialog[name][res];
-      var time = res["time"];
-      console.log(myDate["parts"][res.animationParts[0]]);
-      var animationPart = myDate["parts"][res.animationParts[0]];
-      $("."+name+"_chat-bable").html(res["answer"]);  
-      console.log(res["audio"]);
-      var snd = document.getElementById(res["audio"]);       
+          
+      var audioNum = random(res["audio"]);
+      var time = res["audio"][audioNum]["time"];
+      var animationPart = myDate["parts"][res.animationParts[0]];      
+      $("."+name+"_chat-bable").html(res["answer"]);      
+       var snd = document.getElementById(res["audio"][audioNum]["id"]);       
            snd.play();
+      
       animation(time, animationPart);
    });
 
@@ -383,25 +399,35 @@ $(".chat-input").keypress(function(event){
     helpSay(charName, text, Dialog);
  });
 
+
 //Анимация на галвной странице
 
-$(".cartman, .kail, .stan").click(function(){
+$(".cartman, .kail, .stan, .cartmanChat").live('click', function(){
+    
         var target = this.className;
-        var animationObj;        
-        var dialogObj = Dialog[target].homeDefault; 
-        $.each(myDate.parts, function(index){
-              
+        var targetObj;
+        $.each( myDate["elements"], function(index){
+            if (this.className == target){
+               targetObj = this;
+            };         
+        });
+        console.log(targetObj.name);
+        var animationObj; 
+        var dialogObj = Dialog[targetObj.name].homeDefault;
+        console.log(dialogObj);
+        $.each(myDate.parts, function(index){              
            if (this.parent === target ){            
                animationObj = this;
            }       
         });//endeach
-       var play = Math.round((Math.random() * (Object.size(dialogObj.audio)-1))); 
-       console.log(play);
-       console.log(dialogObj.audio[play].id);
-       var sound = document.getElementById(dialogObj.audio[play].id);
+       
+        var play = Math.round((Math.random() * (Object.size(dialogObj.audio)-1)));
+       
+        console.log(dialogObj.audio[play].id);
+        var sound = document.getElementById(dialogObj.audio[play].id);
            sound.play();  
-       console.log(dialogObj["audio"]);
-       animation(dialogObj.audio[play].time, animationObj);
+        console.log(dialogObj["audio"]);
+        animation(dialogObj.audio[play].time, animationObj);
        
     });   
 
@@ -433,7 +459,6 @@ $(".kenny").click(function(){
 
 
 }); // document load 
-
 
 
 //-----------------------===================-----------------------------
@@ -590,15 +615,21 @@ var carman_sperk = function(){
 
     var chat = function(who, text, dialogs){       
         var re="default";       
-        $.each(dialogs[who], function(key, value){              
-            if (!(text.search(this.pattern))){             
-              re = this["name"];                
-            }
+        $.each(dialogs[who], function(key, value){
+            var thisObj = this;            
+            $.each(this.pattern, function(key, pattern){                
+                
+                if (text.indexOf(pattern) >= 0){
+                    re = thisObj["name"];               
+                }
+            });
+            
         });
-         console.log(re);
+        console.log(re);
         return re; 
         
     };
+
 // --- работа с подсказками     
 var helpSay = function(obj, text, dialogs){
     var q = new  RegExp("(^whie)*(how)* ", "gi");
@@ -615,7 +646,7 @@ var helpSay = function(obj, text, dialogs){
             });
             
          }
-     // добавляем элементы подсказок.
+ // добавляем элементы подсказок.
     if (variants.length){
             $(".help").append("<ul class=\"variantList\"></ul>");
             $.each(variants, function(){
@@ -625,6 +656,8 @@ var helpSay = function(obj, text, dialogs){
           
 };
 
+
+// функция для вычиления длинны объекта
 Object.size = function(obj){
     var size = 0, key;
     for (key in obj){
@@ -632,6 +665,8 @@ Object.size = function(obj){
     }
     return size;
 };
-
+var random = function(obj){
+  return Math.round((Math.random() * (Object.size(obj)-1)));  
+};
 
 // коец скрипта. 
