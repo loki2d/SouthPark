@@ -1588,7 +1588,7 @@ $(window).resize(function(){
 
     });
  
-    $(".say").click(function(){     
+    $(".say").bind("click touch", function(){     
       $(".bable").show('fast');
       var input = $(this).parent("div").children(".chat-input");       
       var name = input.attr("name");
@@ -1618,7 +1618,7 @@ $(".chat-input").keypress(function(event){
 
 //Анимация на галвной странице
 
-$(".cartman, .kyle, .stan, .cartmanChat, .chatStan, .chatKanny, .chatKyle").live('click', function(){
+$(".cartman, .kyle, .stan, .cartmanChat, .chatStan, .chatKanny, .chatKyle").bind("click touch", function(){
     
         var target = this.className;
         var targetObj;
