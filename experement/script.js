@@ -316,8 +316,9 @@ $(".chat-input").keypress(function(event){
     helpSay(char, text, Dialog);
  });
 
-
-
+    $(".cartman, .kail, .stan, .kanny").click(function(){
+        
+    });   
 }); // document load 
 
 //-----------------------===================-----------------------------

@@ -7,12 +7,15 @@
 */
 
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    min-width: 1024px;
+   width: 100%;
+   height: 100%;
+   margin: 0px;
+   padding: 0px;
+   min-width: 600px;
+   font-family: 'Kite One', sans-serif;
+  
 } 
+
 html {
     height: 100%;
     width: 100%;
@@ -22,236 +25,205 @@ html {
     height: 100%;
     width: 100%;
     overflow: hidden;
-   min-width: 1024px;
 }
+
 .i_wBlock{    
     width: 100000px;
-}
-.b_home {
-    float:left;
-    background: url("img/H1.JPG") center no-repeat;
-}
-
-
-.b_uploadScreen {
-    float:left;
-    background: url("img/H2.jpg") center no-repeat;
-}
-
-
-
-
-/*menu
------------------------------*/
-.i_menu {
-    height: 30px;
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    height: 20px;
-    z-index: 10;
-    text-align: right
-}
-.b_menu {
-    list-style: none;
-    margin: 0px;
-    padding:0px; 
-    text-align: center;
-    margin-right: 40px;
-}
-.e_menu {
-   display: inline-block;    
-   height: 61px;
-   line-height: 30px;
-   cursor: pointer;
-   margin: 0px 2px;
-   background: url("img/menu.png") no-repeat;
+    height: 100%;
+    position: relative;
    
 }
-.e_menu-home{
-     background-position: 0px 0px;
-     width: 119px;
-}
-.e_menu-home:hover, .home .e_menu-home {background-position: 0px -65px}
-.e_menu-cartman {
-    background-position: -306px 0px;
-    width: 113px;
-}
-    .e_menu-cartman:hover, .Cartman .e_menu-cartman{background-position: -306px -65px;}
 
-.e_menu-stan {
-    background-position: -122px 0px;
-    width: 80px;
+.page {    
+    width: 100%;
+    height: 100%;    
+    float: left;
+    position: relative;   
 }
-    .e_menu-stan:hover, .Stan .e_menu-stan{background-position: -122px -65px;}
 
-.e_menu-kail {
-    background-position: -420px 0px;
-    width: 77px;
+.slid {
+   position: absolute;
+   right: 20px;
+   top: 0px;
 }
-    .e_menu-kail:hover, .Kail .e_menu-kail{background-position: -420px -65px;}
 
-.e_menu-kenny {
-    background-position: -205px 0px;
-    width: 96px;
+#home {
+    background: url("./img/H1.JPG") center no-repeat;
+}  
+/*manu*/
+.b_menu {
+    display: block;
+    height: 40px;
+    position: absolute;
+    top:10px;
+    left: 30px;
+    width: 800px;
+    z-index: 100;
+    font-family: 'Bad Script', cursive;
 }
-    .e_menu-kenny:hover, .Kenny .e_menu-kenny {background-position: -205px -65px;}
+.e_menu {
+    display: inline-block;
+    height: 40px;
+    padding: 0px 10px;
+    line-height: 40px;
+}
 
-    
  /*Action blocks
 */
 .b_wArea {
-  float:left;
-  position: relative;
+  
 }
-
-.b_home {
-    background: url("img/H1.JPG") center no-repeat;
-}
-       
-        .b_speak-bable-cartman {
-            display: none;
-            padding-top: 30px;
-            height: 80px;
-            width: 200%;
-            position: absolute;
-            top: -160%;
-            left: 30%;
-            text-align: center;
-            border-radius: 100px;
-                background: aliceblue;
-        }
-         #Cartman-mount {
-            position:  relative;
-            height: 2%;
-            width: 2%;
-            top: 73%;
-            left: 33.5%;          
-            display:none;            
-            z-index: 100;
-        }        
-        .b_char-Cartman{
-            position: absolute;   
-            top: 70%;
-            left: 27%;
-            height: 27%;
-            width: 14%;           
-            background: url(img/cartman.png) 0px 0px no-repeat;
-            background-size: contain;
-           
-        }
-        .b_char-Stan{
-            position: absolute;
-            top: 66%;
-            left: 46%;
-            height: 30%;
-            width: 10%;             
-            background: url(img/Stan.png) 0px 0px no-repeat;
-            background-size: contain;
-           
-        }
-        .b_char-Kail{
-            position: absolute;
-            top: 67%;
-            left: 59%;
-            height: 30%;
-            width: 12%;            
-            background: url(img/kail.png) 0px 0px no-repeat;
-            background-size: contain;
-            
-
-        }
-        .b_char-Kenny {
-            position: absolute;
-            top: 66%;
-            left: 76%;
-            height: 30%;
-            width: 12%;              
-            background: url(img/kenny.png) 0px 0px no-repeat;
-            background-size: contain;
-        }
-        
-        
-        
-.b_Stan {
-    background: url("img/H2.jpg") center no-repeat;
-}
-.b_Kenny {
-    background: url("img/H2.jpg") center no-repeat;
-}
-.b_Cartman {
-    background: url("img/H2.jpg") center no-repeat;
-}
-.b_Kail {
-    background: url("img/H2.jpg") center no-repeat;
-}
-
-.b_chat {
-   display: none;
-   height: 20%;   
-   background-color: #fff;
-   border: 2px solid white;     
-   position: absolute;
-   bottom: 0px;
-   width: 80%;
-   -webkit-border-radius: 3%;    
-    border-radius: 3%;
+.audio_store {
+    visibility:hidden;
+    height: 1px;
+    width: 1px;
+    position: absolute; 
+    top: 0px;
 }
 
 /*Старница Картамана*/
-.e_Cartman{
-    height: 380px;    
-    width: 420px;
-    background: url(img/cartman.png) no-repeat;
-    background-size: contain;
-    top: 70%;
-    left: 23%;
-    position: absolute;
+#chatCartman {
+    width:100%;
+    height: 100%;
+    float: left;    
+    background: url(./img/H2.jpg) 0px 0px no-repeat;
 }
-.e_cartman-speakBable{
-    background: url(img/bable_charLeft.png) no-repeat;
-    height: 387px;
-    width: 575px;
-    background-size: contain;
-    position: absolute;
-    top: 47%;
-    left: 33%;
+
+.help {
+    position: fixed; 
+    top: 0px; 
+    right: 0px; 
+    height: 50px; 
+    width: 400px; 
+    background: #fff ;
 }
 
 
-.answer {
+.cartman_chat-bable {
+    position:absolute;
+    height: 101px;
+    width: 687px;
+    padding: 70px 20px;
+    background: url("./img/bubble.png") no-repeat;
+    left: 30%;
+    bottom: 40%;
+    text-align: center;
+} 
+/*Старница Стена*/
+
+#chatStan {
+    width:100%;
+    height: 100%;
+    float: left;    
+    background: url(./img/H3.jpg) 0px 0px no-repeat;
+}
+
+
+.stan_chat-bable {
+    position:absolute;
     height: 200px;
-    background: white;
-    margin-bottom: 10px;
-    color: black;
+    width: 400px;
+    background: #fff;
+    left: 30%;
+    top: 30%;
+} 
+
+/*Старница Каила*/
+    #chatKail {
+    width:100%;
+    height: 100%;
+    float: left;    
+    background: url(./img/H4.jpg) 0px 0px no-repeat;
 }
-.ask {
-    height: 10%;
-    background: #edbd8d;
-    padding:20px;
+
+
+.kail_chat-bable {
+    position:absolute;
+    height: 100px;
+    width: 200px;
+    background: #fff;
+    left: 30%;
+    top: 10%;
+} 
+/*Старница Кенни*/
+
+#chatKenny {
+    width:100%;
+    height: 100%;
+    float: left;    
+    background: url('./img/H5.jpg') 0px 0px no-repeat;
+}
+
+
+.kail_chat-bable {
+    position:absolute;
+    height: 100px;
+    width: 200px;
+    background: #fff;
+    left: 30%;
+    top: 10%;
+} 
+
+
+/*chat*/
+.chat {
+    height: 94px;
+    width: 686px;
+    padding: 20px 0px 0px 55px;
+    background: url("./img/chat_bg.png") no-repeat;
     position: absolute;
     bottom: 0px;
-    width: 30%;
-    right : 20%;
-}
-.cartman_chat {
-    width: 100%;  
-    resize: none;
-    background: #ccc;
-    color: blue;
-    height: 60%;
-    font-size: 20px;
-    margin-bottom: 3%;
-}
-.send {
-    cursor: pointer;
-    font-size: 20px;
-}
-.e_speacBable-chat {
+    left: 30%;
+    z-index: 20;    
 }
 
+.chat-input {
+    height: 50px;
+    border: 3px solid #d5a83c;
+    width: 490px;
+    padding: 0px 100px 0px 10px;
+}
 
+.chat-heder{
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+.input_area{
+    position: relative;
+}
+.say {
+    height: 52px;
+    width: 86px;
+    display: block;
+    position: absolute;
+    right: 80px;
+    top: 10px;
+    background: url("./img/send.png") no-repeat;
+}
+.scotch_l {
+    background: url("./img/scotch_l.png") no-repeat; 
+    height: 45px;
+    width: 57px;
+    position: absolute;
+    left: -31px;
+    top: -18px;
+}
+.scotch_r{
+    background: url("./img/scotch_r.png") no-repeat;
+    position: absolute;
+    width: 52px;
+    height: 44px;
+    right: 57px;
+    top: -21px;
+}
 
-/*Старница Стена*/
-/*Старница Каила*/
-/*Старница Кенни*/
+.bable {
+    position:absolute;
+    height: 101px;
+    width: 687px;
+    padding: 70px 20px;
+    background: url("./img/bubble.png") no-repeat;
+    left: 30%;
+    bottom: 40%;
+    text-align: center;
+} 
