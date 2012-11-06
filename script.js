@@ -1595,9 +1595,12 @@ $(window).resize(function(){
     $(".say").bind("click touch", function(){     
       say($(this), Dialog, myDate);     
    });
-    $(".chat-input").keydown(function() {     
-      say($(this), Dialog, myDate);     
-   });
+    $(".chat-input").keydown(function(e) {     
+         
+        if (e.keyCode === 13){
+            say($(this), Dialog, myDate);     
+        }
+       });
 
 $(".chat-input").keypress(function(event){
     var text = $(this).val(); 
