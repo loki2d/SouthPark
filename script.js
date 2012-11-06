@@ -702,7 +702,7 @@ var dialog = '{ "cartman": {'+
 			 
  			 '"jew" : {'+
 				'"name" : "jew",'+
-				'"pattern" : "jew",'+
+				'"pattern" : {"0":"jew"},'+
 				'"answer" : "Speak about it with Kyle",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -766,7 +766,7 @@ var dialog = '{ "cartman": {'+
 			 			 
 			 '"haven" : {'+
 				'"name" : "haven",'+
-				'"pattern" : "haven",'+
+				'"pattern" : {"0":"haven"},'+
 				'"answer" : "Talk about this with Kenny. He knows more.",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -776,7 +776,7 @@ var dialog = '{ "cartman": {'+
 			 
  			 '"drugs" : {'+
 				'"name" : "drugs",'+
-				'"pattern" : "drugs",'+
+				'"pattern" : {"0":"drugs"},'+
 				'"answer" : "Drugs are not so fun",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -786,7 +786,7 @@ var dialog = '{ "cartman": {'+
 		 
 			 '"like" : {'+
 				'"name" : "like",'+
-				'"pattern" : "do you like",'+
+				'"pattern" : {"0":"do you like"},'+
 				'"answer" : "Yeah.",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -796,7 +796,7 @@ var dialog = '{ "cartman": {'+
 			 
 			 '"suckmyballs" : {'+
 				'"name" : "suckmyballs",'+
-				'"pattern" : "suck my balls",'+
+				'"pattern" : {"0":"suck my balls"},'+
 				'"answer" : "Yes. May be..",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -806,7 +806,7 @@ var dialog = '{ "cartman": {'+
 			 
  			 '"myass" : {'+
 				'"name" : "myass",'+
-				'"pattern" : "my ass",'+
+				'"pattern" : {"0":"my ass"},'+
 				'"answer" : "It\'s stupid,dude",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -816,7 +816,7 @@ var dialog = '{ "cartman": {'+
 			 
  			 '"fatass" : {'+
 				'"name" : "fatass",'+
-				'"pattern" : "fat  ass",'+
+				'"pattern" : {"0":"fat ass"},'+
 				'"answer" : "I\'m not a fat-ass! Talk about it with Cartman",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -841,7 +841,7 @@ var dialog = '{ "cartman": {'+
 			 		
 			 '"ass" : {'+
 				'"name" : "ass",'+
-				'"pattern" : "ass",'+
+				'"pattern" : {"0":"ass"},'+
 				'"answer" : "Ass! Ass, ass, big ass, fat ass, what else?",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -852,7 +852,7 @@ var dialog = '{ "cartman": {'+
 
 			 '"hippies" : {'+
 				'"name" : "hippies",'+
-				'"pattern" : "hippies",'+
+				'"pattern" : {"0":"hippies"},'+
 				'"answer" : "Cartman hates hippies",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -862,7 +862,7 @@ var dialog = '{ "cartman": {'+
 					 
 			 '"think2" : {'+
 				'"name" : "think2",'+
-				'"pattern" : "what you think",'+
+				'"pattern" : {"0":"what you think"},'+
 				'"answer" : "I don\'t know",'+
 				'"audio": "0",'+   
 				'"animationParts": {'+
@@ -872,7 +872,7 @@ var dialog = '{ "cartman": {'+
 			 			 
 			 '"think" : {'+
 				'"name" : "think",'+
-				'"pattern" : "what do you think about",'+
+				'"pattern" : {"0":"what do you think about"},'+
 				'"answer" : "I don\'t know",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -882,7 +882,7 @@ var dialog = '{ "cartman": {'+
 			 
  			 '"iwant" : {'+
 				'"name" : "iwant",'+
-				'"pattern" : "i want",'+
+				'"pattern" : {"0":"i want"},'+
 				'"answer" : " That\'s impossible!",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -906,7 +906,7 @@ var dialog = '{ "cartman": {'+
 
 			 '"fuck" : {'+
 				'"name" : "fuck",'+
-				'"pattern" : "fuck",'+
+				'"pattern" : {"0":"fuck"},'+
 				'"answer" : "Wow, you\'re so smart",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -971,7 +971,7 @@ var dialog = '{ "cartman": {'+
 			 
 			 '"where" : {'+
 				'"name" : "where",'+
-				'"pattern"  : "where",'+
+				'"pattern"  : {"0":"where"},'+
 				'"answer" : "I don\'t remember",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -981,7 +981,7 @@ var dialog = '{ "cartman": {'+
 
  			 '"why" : {'+
 				'"name" : "why",'+
-				'"pattern"  : "why",'+
+				'"pattern"  : {"0":"why"},'+
 				'"answer" : "It doesn\'t metter",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -991,7 +991,7 @@ var dialog = '{ "cartman": {'+
 
 			 '"what" : {'+
 				'"name" : "what",'+
-				'"pattern"  : "what",'+
+				'"pattern"  : {"0":"what"},'+
 				'"answer" : "What, dude?",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1039,7 +1039,7 @@ var dialog = '{ "cartman": {'+
 			 
 			  '"default" : {'+
 				'"name" : "default",'+
-				'"pattern" : "0",'+
+				'"pattern" : {"0":"0"},'+
 				'"answer" : "What did you say?!",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1049,7 +1049,7 @@ var dialog = '{ "cartman": {'+
 			 
 			 '"homeDefault" : {'+
                           '"name" : "homeDefault",'+
-                          '"pattern" : "0",'+
+                          '"pattern" : {"0":"0"},'+
                           '"answer" : "What did you say?!",'+
                           '"audio": {'+
                                     '"0":{'+
@@ -1174,7 +1174,7 @@ var dialog = '{ "cartman": {'+
 			 			 
 			 '"haven" : {'+
 				'"name" : "haven",'+
-				'"pattern" : "haven",'+
+				'"pattern" : {"0":"haven"},'+
 				'"answer" : "Heaven where Kenny wait us",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1184,7 +1184,7 @@ var dialog = '{ "cartman": {'+
 			 
  			 '"drugs" : {'+
 				'"name" : "drugs",'+
-				'"pattern" : "drugs",'+
+				'"pattern" : {"0":"drugs"},'+
 				'"answer" : "Drugs are not so fun",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1194,7 +1194,7 @@ var dialog = '{ "cartman": {'+
 		 
 			 '"like" : {'+
 				'"name" : "like",'+
-				'"pattern" : "do you like",'+
+				'"pattern" :{"0": "do you like"},'+
 				'"answer" : "Yeah.",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1204,7 +1204,7 @@ var dialog = '{ "cartman": {'+
 			 
 			 '"suckmyballs" : {'+
 				'"name" : "suckmyballs",'+
-				'"pattern" : "suck my balls",'+
+				'"pattern" : {"0":"suck my balls"},'+
 				'"answer" : " I\'ll kick your ass!",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1214,7 +1214,7 @@ var dialog = '{ "cartman": {'+
 			 
  			 '"myass" : {'+
 				'"name" : "myass",'+
-				'"pattern" : "my ass",'+
+				'"pattern" : {"0":"my ass"},'+
 				'"answer" : "It\'s stupid,dude",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1224,7 +1224,7 @@ var dialog = '{ "cartman": {'+
 			 
  			 '"fatass" : {'+
 				'"name" : "fatass",'+
-				'"pattern" : "fat  ass",'+
+				'"pattern" : {"0":"fat ass"},'+
 				'"answer" : "I\'m not a fat-ass! Talk about it with Cartman",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1249,7 +1249,7 @@ var dialog = '{ "cartman": {'+
 			 		
 			 '"ass" : {'+
 				'"name" : "ass",'+
-				'"pattern" : "ass",'+
+				'"pattern" : {"0":"ass"},'+
 				'"answer" : "Ass, ass, ass, everething is gis ass",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1260,7 +1260,7 @@ var dialog = '{ "cartman": {'+
 
 			 '"hippies" : {'+
 				'"name" : "hippies",'+
-				'"pattern" : "hippies",'+
+				'"pattern" : {"0":"hippies"},'+
 				'"answer" : "Cartman hates hippies",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1270,7 +1270,7 @@ var dialog = '{ "cartman": {'+
 					 
 			 '"think2" : {'+
 				'"name" : "think2",'+
-				'"pattern" : "what you think",'+
+				'"pattern" : {"0":"what you think"},'+
 				'"answer" : "I don\'t know",'+
 				'"audio": "0",'+   
 				'"animationParts": {'+
@@ -1280,7 +1280,7 @@ var dialog = '{ "cartman": {'+
 			 			 
 			 '"think" : {'+
 				'"name" : "think",'+
-				'"pattern" : "what do you think about",'+
+				'"pattern" : {"0":"what do you think about"},'+
 				'"answer" : "I don\'t know",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1290,7 +1290,7 @@ var dialog = '{ "cartman": {'+
 			 
  			 '"iwant" : {'+
 				'"name" : "iwant",'+
-				'"pattern" : "i want",'+
+				'"pattern" : {"0":"i want"},'+
 				'"answer" : " That\'s impossible!",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1314,7 +1314,7 @@ var dialog = '{ "cartman": {'+
 
 			 '"fuck" : {'+
 				'"name" : "fuck",'+
-				'"pattern" : "fuck",'+
+				'"pattern" : {"0":"fuck"},'+
 				'"answer" : "Wow, you\'re so smart",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1379,7 +1379,7 @@ var dialog = '{ "cartman": {'+
 			 
 			 '"where" : {'+
 				'"name" : "where",'+
-				'"pattern"  : "where",'+
+				'"pattern"  : {"0":"where"},'+
 				'"answer" : "I don\'t remember",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1389,7 +1389,7 @@ var dialog = '{ "cartman": {'+
 
  			 '"why" : {'+
 				'"name" : "why",'+
-				'"pattern"  : "why",'+
+				'"pattern"  : {"0":"why"},'+
 				'"answer" : "It doesn\'t metter",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1399,7 +1399,7 @@ var dialog = '{ "cartman": {'+
 
 			 '"what" : {'+
 				'"name" : "what",'+
-				'"pattern"  : "what",'+
+				'"pattern"  : {"0":"what"},'+
 				'"answer" : "What, dude?",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1435,7 +1435,7 @@ var dialog = '{ "cartman": {'+
 			 
 			 '"youare" : {'+
 				'"name" : "youare",'+
-				'"pattern"  : "you are",'+
+				'"pattern"  : {"0":"you are"},'+
 				'"answer" : "Shut up!",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1445,7 +1445,7 @@ var dialog = '{ "cartman": {'+
 			 
 			  '"default" : {'+
 				'"name" : "default",'+
-				'"pattern" : "0",'+
+				'"pattern" :{"0": "0"},'+
 				'"answer" : "What did you say?!",'+
 				'"audio": "0",'+  
 				'"animationParts": {'+
@@ -1839,19 +1839,19 @@ var carman_sperk = function(){
 
 
     var chat = function(who, text, dialogs){
-        text = text.toLowerCase();
+        text = text.toLowerCase();        
         var re="default";         
         $.each(dialogs[who], function(key, value){
             var thisObj = this;            
             $.each(this.pattern, function(key, pattern){                
-                
+                 console.log(text.indexOf(pattern));
                 if (text.indexOf(pattern) >= 0){
                     re = thisObj["name"];               
                 }
             });
             
         });
-        console.log(re);
+       
         return re; 
         
     };
