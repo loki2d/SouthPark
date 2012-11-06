@@ -142,7 +142,7 @@ var $Date =  '{'+
                             '"tagName":"canvas",'+
                             '"function":"KanyMad",'+
                             '"sprite":"./img/kenny-head.png",'+
-                            '"pictDefault":"./img/kany-head-d.png",'+
+                            '"pictDefault":"",'+
                             '"volume": "0"'+                            
             '},'+
             '"StanChatRotAnimation":{'+        
@@ -1556,8 +1556,12 @@ sizeUpdate(1, myDate, 1, 1);
     
     
 // проприсовка активных элементов персонажей 
-parts(myDate); 
+ 
  ResizePage();
+ 
+ 
+ 
+ parts(myDate);
 // если ресайзится делаем ресайз )
 $(window).resize(function(){  
     Resize(myDate);
@@ -1629,9 +1633,8 @@ $(".cartman, .kyle, .stan, .cartmanChat, .chatStan, .chatKanny, .chatKyle").bind
         });
         console.log(Dialog[targetObj.name]);
         var animationObj; 
-        var dialogObj = Dialog[targetObj.name].homeDefault;
-        
-        console.log(dialogObj);
+        var dialogObj = Dialog[targetObj.name].homeDefault;       
+       
         
         $.each(myDate.parts, function(index){              
            if (this.parent === target ){            
@@ -1639,9 +1642,8 @@ $(".cartman, .kyle, .stan, .cartmanChat, .chatStan, .chatKanny, .chatKyle").bind
            }       
         });//endeach
        
-        var play = Math.round((Math.random() * (Object.size(dialogObj.audio)-1)));
+        var play = Math.round((Math.random() * (Object.size(dialogObj.audio)-1)));       
        
-        console.log(dialogObj.audio[play].id);
         var sound = document.getElementById(dialogObj.audio[play].id);
            sound.play();  
         console.log(dialogObj["audio"]);
@@ -1657,7 +1659,7 @@ $(".kenny").click(function(){
           sound.play();  
      var head = $('.KannyHead')[0].getContext('2d');
       var img = new Image();
-          img.src = "img/kenny-2.png";     
+          img.src = "./img/kenny-2.png";     
       function screem(i){
           if (i === 0){
                head.clearRect(0, 0, 500, 500); 
@@ -1730,18 +1732,18 @@ $(".kenny").click(function(){
 
 // прорисовка активных элементов персонажей
 var parts = function(data){
-
 $.each(data.parts, function(){
        $("."+this.parent).append("<"+this.tagName+" class="+this.className+" style='"+this.css+"'></"+this.tagName+">");
-       if (this.tagName == "canvas"){          
+       if (this.tagName == "canvas"){
+           
            var img = new Image(); 
-           var mount;               
             img.src = this.pictDefault;            
-            mount = $("."+this.className)[0].getContext('2d');
-            mount.clearRect(0, 0, 500, 500); 
-            mount.drawImage(img, 0, 0, 340, 105)
-               
-          
+           var canv = $("."+this.className)[0].getContext('2d');
+            img.onload = function() {                 
+                 canv.clearRect(0, 0, 500, 500);                  
+                 canv.drawImage(img, 0, 0, 340, 105);                  
+        
+           }
        }
    });
 }; // прорисовка элементов
