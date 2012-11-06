@@ -1053,32 +1053,32 @@ var dialog = '{ "cartman": {'+
                           '"answer" : "What did you say?!",'+
                           '"audio": {'+
                                     '"0":{'+
-                                            '"id":"chatstan_stan_main1",'+
+                                            '"id":"main-stan_1",'+
                                             '"url":"./audio/stan/main1.mp3",'+
                                             '"time":"50"'+
                                     '},'+                  
                                     '"1":{'+
-                                            '"id":"chatstan_stan_main2",'+
+                                            '"id":"main-stan_2",'+
                                             '"url":"./audio/stan/main2.mp3",'+
                                             '"time":"70"'+
                                     '},'+                  
                                     '"2":{'+
-                                            '"id":"chatstan_stan_main3",'+
+                                            '"id":"main-stan_3",'+
                                             '"url":"./audio/stan/main3.mp3",'+
                                             '"time":"50"'+
                                     '},'+                  
                                     '"3":{'+
-                                            '"id":"chatstan_stan_main4",'+
+                                            '"id":"main-stan_4",'+
                                             '"url":"./audio/stan/main4.mp3",'+
                                             '"time":"30"'+
                                     '},'+
                                     '"4":{'+
-                                            '"id":"chatstan_stan_main5",'+
+                                            '"id":"main-stan_5",'+
                                             '"url":"./audio/stan/main5.mp3",'+
                                             '"time":"20"'+
                                     '},'+  
                                     '"5":{'+
-                                                  '"id":"chatstan_stan_main6",'+
+                                                  '"id":"main-stan_6",'+
                                                   '"url":"./audio/stan/main6.mp3",'+
                                                   '"time":"20"'+
                                           '}'+
@@ -1460,20 +1460,15 @@ var dialog = '{ "cartman": {'+
                           '"answer" : "What did you say?!",'+
                           '"audio": {'+
                                     '"0":{'+
-                                            '"id":"chatkyle_kyle_main1",'+
+                                            '"id":"main-kyle_1",'+
                                             '"url":"./audio/kyle/main1.mp3",'+
                                             '"time":"20"'+
                                     '},'+                          
                                      '"1":{'+
-                                                  '"id":"chatkyle_kyle_main2",'+
+                                                  '"id":"main-kyle_2",'+
                                                   '"url":"./audio/kyle/main2.mp3",'+
                                                   '"time":"10"'+
-                                          '},'+
-                                     '"1":{'+
-                                                  '"id":"chatkyle_kyle_main3",'+
-                                                  '"url":"./audio/kyle/main3.mp3",'+
-                                                  '"time":"60"'+
-                                          '}'+
+                                          '}'+                                     
                             '},'+ 
                             '"animationParts": {'+
                                     '"0" : "KyleMount"'+
@@ -1632,9 +1627,9 @@ $(".cartman, .kyle, .stan, .cartmanChat, .chatStan, .chatKanny, .chatKyle").bind
         });//endeach
        
         var play = Math.round((Math.random() * (Object.size(dialogObj.audio)-1)));       
-       
+        console.log(dialogObj.audio[play].id);
         var sound = document.getElementById(dialogObj.audio[play].id);
-           sound.play();  
+            sound.play();
         console.log(dialogObj["audio"]);
         animation(dialogObj.audio[play].time, animationObj);
        
