@@ -1593,24 +1593,10 @@ $(window).resize(function(){
     });
  
     $(".say").bind("click touch", function(){     
-      $(".bable").show('fast');
-      var input = $(this).parent("div").children(".chat-input");       
-      var name = input.attr("name");
-      var page = input.parent("div").parent("div").parent("div");
-      var value = input.val();
-
-      var res = chat(name, value, Dialog);
-
-          res = Dialog[name][res];
-          
-      var audioNum = random(res["audio"]);
-      var time = res["audio"][audioNum]["time"];
-      var animationPart = myDate["parts"][res.animationParts[0]];      
-      $("."+name+"_chat-bable").html(res["answer"]);      
-       var snd = document.getElementById(res["audio"][audioNum]["id"]);       
-           snd.play();
-      
-      animation(time, animationPart);
+      say($(this), Dialog, myDate);     
+   });
+    $(".chat-input").keydown(function() {     
+      say($(this), Dialog, myDate);     
    });
 
 $(".chat-input").keypress(function(event){
@@ -1832,9 +1818,31 @@ var carman_sperk = function(){
 //------------------------------
 //----------------------CHAT----
 //------------------------------
+    var say = function(obj, dialogObj, dateObj){
+      $(".bable").show('fast');
+      var input = obj.parent("div").children(".chat-input");       
+      var name = input.attr("name");
+      var page = input.parent("div").parent("div").parent("div");
+      var value = input.val();
+      
+      var res = chat(name, value, dialogObj);
+     
+          res = dialogObj[name][res];
+          
+      var audioNum = random(res["audio"]);
+      var time = res["audio"][audioNum]["time"];
+      var animationPart = dateObj["parts"][res.animationParts[0]];      
+      $("."+name+"_chat-bable").html(res["answer"]);      
+       var snd = document.getElementById(res["audio"][audioNum]["id"]);       
+           snd.play();
+      
+      animation(time, animationPart);
+    }
 
-    var chat = function(who, text, dialogs){       
-        var re="default";       
+
+    var chat = function(who, text, dialogs){
+        text = text.toLowerCase();
+        var re="default";         
         $.each(dialogs[who], function(key, value){
             var thisObj = this;            
             $.each(this.pattern, function(key, pattern){                
